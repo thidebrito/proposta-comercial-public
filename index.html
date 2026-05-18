@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Skill · proposta-comercial · v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --primary: #0A1929;
+  --primary-deep: #020817;
+  --primary-light: #1E3A5F;
+  --primary-soft: #3B5C8C;
+  --accent: #10B981;
+  --accent-soft: #6EE7B7;
+  --accent-deep: #047857;
+  --neutral-light: #F5F7FA;
+  --neutral-warm: #E5E9EE;
+  --text: #0A1929;
+  --text-soft: #475569;
+  --text-mute: #94A3B8;
+  --border: #CBD5E1;
+  --border-soft: #E2E8F0;
+  --serif: 'Bricolage Grotesque', 'Inter', sans-serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
+  --container: 1180px;
+  --pad: clamp(1.25rem, 4vw, 2rem);
+  --pad-section: clamp(80px, 12vh, 120px);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 2px 8px rgba(10, 25, 41, 0.06);
+  --shadow-md: 0 8px 24px rgba(10, 25, 41, 0.12);
+  --shadow-lg: 0 24px 60px rgba(10, 25, 41, 0.20);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  background: var(--neutral-light);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent-deep); text-decoration: none; }
+a:hover { color: var(--accent); }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(110, 231, 183, 0.10), transparent 50%);
+  pointer-events: none;
+}
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; padding: 100px 0; }
+.hero-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  background: rgba(16, 185, 129, 0.10);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 90px);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.hero-lede {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 720px;
+  line-height: 1.55;
+  margin-bottom: 48px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 32px;
+  max-width: 720px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 36px;
+}
+.hero-stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--accent-soft);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-stat span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero-cta {
+  margin-top: 48px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s var(--ease);
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--accent); color: var(--primary-deep); }
+.btn-primary:hover { background: var(--accent-soft); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16,185,129,0.4); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+/* ── SECTIONS ─────────────────────────────────────────── */
+section.section {
+  padding: var(--pad-section) 0;
+  position: relative;
+}
+.section.alt { background: #fff; }
+.section.dark {
+  background: linear-gradient(180deg, var(--primary-deep), var(--primary));
+  color: #fff;
+}
+.section.dark .eyebrow { color: var(--accent-soft); }
+.section.dark .text-soft { color: rgba(255,255,255,0.7); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  max-width: 900px;
+}
+.section-title em {
+  color: var(--accent-deep);
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+}
+.section-title em::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 8px;
+  background: rgba(16, 185, 129, 0.18);
+  z-index: -1;
+}
+.section.dark .section-title em { color: var(--accent-soft); }
+.section.dark .section-title em::after { background: rgba(110, 231, 183, 0.15); }
+
+.section-lede {
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: var(--text-soft);
+  max-width: 760px;
+  line-height: 1.6;
+  margin-bottom: 56px;
+}
+.section.dark .section-lede { color: rgba(255, 255, 255, 0.75); }
+
+/* ── FLOW STEPS ───────────────────────────────────────── */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.flow-step {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.3s var(--ease);
+}
+.flow-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+.flow-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+}
+.flow-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.flow-desc {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+.flow-gate {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: rgba(16, 185, 129, 0.10);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* ── SLIDES TABLE ─────────────────────────────────────── */
+.slides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.slide-row {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s var(--ease);
+}
+.slide-row:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.slide-row-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 44px;
+}
+.slide-row-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.slide-row-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.slide-row.extra {
+  background: rgba(16, 185, 129, 0.04);
+  border-color: rgba(16, 185, 129, 0.25);
+  border-style: dashed;
+}
+.slide-row.extra .slide-row-num { color: var(--accent-deep); }
+
+/* ── PRINCIPLES ───────────────────────────────────────── */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.principle {
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s var(--ease);
+}
+.principle:hover { border-color: var(--accent); background: rgba(255, 255, 255, 0.08); }
+.principle-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--primary-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  font-family: var(--serif);
+  margin-bottom: 18px;
+}
+.principle h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.principle p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+}
+
+/* ── COMMANDS ─────────────────────────────────────────── */
+.commands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.cmd-card {
+  background: var(--primary-deep);
+  border-radius: var(--radius);
+  padding: 24px;
+  color: #fff;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cmd-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 14px;
+  display: block;
+}
+.cmd-card-code {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: #e2e8f0;
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+}
+.cmd-card-code .cmt { color: var(--text-mute); }
+.cmd-card-code .kw { color: var(--accent-soft); }
+.cmd-card-desc {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* ── MODES TABLE ──────────────────────────────────────── */
+.modes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+}
+.modes-table th, .modes-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-soft);
+}
+.modes-table th {
+  background: var(--primary-deep);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  font-weight: 700;
+}
+.modes-table tr:last-child td { border-bottom: none; }
+.modes-table tbody tr { transition: background 0.2s; }
+.modes-table tbody tr:hover { background: rgba(16, 185, 129, 0.04); }
+.mode-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-deep);
+  background: rgba(16, 185, 129, 0.10);
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* ── VALIDATOR ────────────────────────────────────────── */
+.validator-card {
+  background: var(--primary-deep);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  margin-bottom: 36px;
+  border: 1px solid var(--accent);
+}
+.validator-output {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: #e2e8f0;
+  white-space: pre;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+.validator-output .ok { color: var(--accent-soft); }
+.validator-output .verdict { color: var(--accent); font-weight: 700; }
+.crit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+.crit-block h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--accent-deep);
+}
+.crit-block ul {
+  list-style: none;
+  padding: 0;
+}
+.crit-block li {
+  font-size: 13px;
+  color: var(--text-soft);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.crit-block li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.crit-block.ethics li::before {
+  content: '⚠';
+  color: #DC2626;
+}
+
+/* ── FORBIDDEN OUTPUTS ────────────────────────────────── */
+.forbidden {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(220, 38, 38, 0.03) 100%);
+  border-left: 4px solid #DC2626;
+  border-radius: var(--radius-sm);
+  padding: 28px;
+  margin-top: 32px;
+}
+.forbidden h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: #991B1B;
+  margin-bottom: 16px;
+}
+.forbidden ul {
+  list-style: none;
+  padding: 0;
+}
+.forbidden li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 6px 0;
+  display: flex;
+  gap: 10px;
+}
+.forbidden li::before {
+  content: '✗';
+  color: #DC2626;
+  font-weight: 700;
+}
+
+/* ── CASE STUDY ───────────────────────────────────────── */
+.case-card {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 24px;
+}
+.case-card-meta { padding-right: 16px; }
+.case-card-meta h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.case-card-meta .case-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 12px;
+  display: block;
+}
+.case-card-meta p {
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.case-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--neutral-light);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+}
+.case-stat strong {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent-deep);
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.case-stat span {
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.case-deliverables {
+  margin-top: 28px;
+  background: var(--neutral-light);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+}
+.case-deliverables-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-deliverables code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  display: block;
+  line-height: 1.7;
+}
+
+/* ── LIBS CATALOG ─────────────────────────────────────── */
+.libs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.lib-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  border: 1px solid var(--border-soft);
+  transition: all 0.3s var(--ease);
+}
+.lib-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.lib-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lib-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.lib-weight {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-deep);
+  background: rgba(16, 185, 129, 0.08);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+.lib-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.lib-when {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.05em;
+}
+
+/* ── ROADMAP ──────────────────────────────────────────── */
+.roadmap-list {
+  list-style: none;
+  padding: 0;
+}
+.roadmap-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s var(--ease);
+}
+.roadmap-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(4px); }
+.roadmap-status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.roadmap-status.todo { background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.6); }
+.roadmap-status.done { background: rgba(16, 185, 129, 0.20); color: var(--accent-soft); }
+.roadmap-text { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.55; }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: var(--primary-deep);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 64px 0 40px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+footer h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+footer a { color: var(--accent-soft); }
+footer .footer-links {
+  margin: 24px 0 32px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+footer .footer-meta {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── REVEAL ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-card { grid-template-columns: 1fr; }
+  .crit-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 44px; }
+  .section-title { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-badge reveal">Skill · v2.0 · MIT</span>
+    <h1 class="reveal">Briefing simples<br/>vira <em>proposta visual<br/>premium</em>.</h1>
+    <p class="hero-lede reveal">A skill <strong>proposta-comercial</strong> transforma 25 perguntas em uma apresentação HTML interativa de 12+ slides, com paleta extraída do cliente, projeções conservadoras, validador automático de 36 critérios e bloqueadores éticos. Pronta pra apresentar ao vivo, exportar PDF ou publicar como link privado.</p>
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <strong>3</strong>
+        <span>níveis de briefing</span>
+      </div>
+      <div class="hero-stat">
+        <strong>8 / 18 / 30</strong>
+        <span>perguntas estratégicas</span>
+      </div>
+      <div class="hero-stat">
+        <strong>36</strong>
+        <span>critérios validados</span>
+      </div>
+      <div class="hero-stat">
+        <strong>6</strong>
+        <span>bloqueadores éticos</span>
+      </div>
+    </div>
+    <div class="hero-cta reveal">
+      <a class="btn btn-primary" href="#niveis">Escolher meu nível ↓</a>
+      <a class="btn btn-outline" href="#caso-real">Caso real</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3 NÍVEIS DE BRIEFING ───────────────────────────── -->
+<section class="section alt" id="niveis">
+  <div class="container">
+    <div class="eyebrow reveal">3 níveis · escolha antes de começar</div>
+    <h2 class="section-title reveal">Briefing <em>do tamanho</em><br/>do seu cliente.</h2>
+    <p class="section-lede reveal">Você escolhe quanto tempo investir no briefing — a entrega final escala junto. Quanto mais profundo o briefing, mais slides e profundidade narrativa o pitch entrega.</p>
+
+    <div class="levels-grid">
+      <div class="level-card reveal level-express">
+        <div class="level-header">
+          <span class="level-tag">Nível 1</span>
+          <h3>Express</h3>
+          <div class="level-meta">8 perguntas · ~5 min</div>
+        </div>
+        <div class="level-body">
+          <div class="level-output">8 slides core</div>
+          <ul class="level-list">
+            <li>Capa</li>
+            <li>Espelho (números reais)</li>
+            <li>Quem é (bio editorial)</li>
+            <li>Oportunidades</li>
+            <li>Os 6 produtos</li>
+            <li>Projeção financeira</li>
+            <li>Modelos de parceria</li>
+            <li>CTA final (30 dias)</li>
+          </ul>
+          <div class="level-when"><strong>Quando usar:</strong> cliente conhecido, prazo apertado, validação rápida de fit</div>
+          <div class="level-gate">1 Quality Gate (final)</div>
+        </div>
+      </div>
+
+      <div class="level-card reveal level-standard recommended">
+        <div class="level-badge">★ Default recomendado</div>
+        <div class="level-header">
+          <span class="level-tag">Nível 2</span>
+          <h3>Standard</h3>
+          <div class="level-meta">18 perguntas · ~15 min</div>
+        </div>
+        <div class="level-body">
+          <div class="level-output">12 slides canônicos</div>
+          <ul class="level-list">
+            <li>Tudo do Express</li>
+            <li>+ O que preservar</li>
+            <li>+ Direção criativa</li>
+            <li>+ Mockup/site</li>
+            <li>+ Roadmap 12 meses</li>
+          </ul>
+          <div class="level-when"><strong>Quando usar:</strong> cliente novo, ticket médio/alto, primeira proposta</div>
+          <div class="level-gate">2 Quality Gates (estratégia + final)</div>
+        </div>
+      </div>
+
+      <div class="level-card reveal level-premium">
+        <div class="level-header">
+          <span class="level-tag">Nível 3</span>
+          <h3>Premium</h3>
+          <div class="level-meta">30 perguntas · ~40 min</div>
+        </div>
+        <div class="level-body">
+          <div class="level-output">15 slides (cobertura máxima)</div>
+          <ul class="level-list">
+            <li>Tudo do Standard</li>
+            <li>+ Quem propõe (você)</li>
+            <li>+ Cases & Resultados</li>
+            <li>+ FAQ + Riscos</li>
+          </ul>
+          <div class="level-when"><strong>Quando usar:</strong> cliente top-tier, ticket altíssimo (>R$50k), JV estratégica, primeira impressão decisiva</div>
+          <div class="level-gate">3 Quality Gates (estratégia + design + final)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="levels-cmd reveal">
+      <code>/proposta-comercial --level=standard</code>
+      <span>ou simplesmente <code>/proposta-comercial</code> que a skill pergunta o nível</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.level-card {
+  background: #fff;
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+.level-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.level-card.recommended {
+  border-color: var(--accent);
+  box-shadow: 0 16px 48px rgba(16, 185, 129, 0.18);
+  transform: scale(1.02);
+}
+.level-card.recommended:hover { transform: scale(1.02) translateY(-6px); }
+.level-badge {
+  background: var(--accent);
+  color: var(--primary-deep);
+  text-align: center;
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.level-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.level-express .level-header { background: linear-gradient(135deg, #F0FDF4, #ECFDF5); }
+.level-standard .level-header { background: linear-gradient(135deg, #FEF3C7, #FEF9E7); }
+.level-premium .level-header { background: linear-gradient(135deg, #FEE2E2, #FFE4E6); }
+.level-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 10px;
+}
+.level-header h3 {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.level-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-soft);
+  letter-spacing: 0.05em;
+}
+.level-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.level-output {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent-deep);
+  background: rgba(16, 185, 129, 0.08);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  text-align: center;
+}
+.level-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.level-list li {
+  font-size: 14px;
+  color: var(--text-soft);
+  padding: 6px 0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.level-list li::before {
+  content: '→';
+  color: var(--accent);
+  font-weight: 700;
+}
+.level-when {
+  font-size: 13px;
+  color: var(--text-soft);
+  background: var(--neutral-light);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.level-gate {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  text-align: center;
+  padding: 10px;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+.levels-cmd {
+  text-align: center;
+  background: var(--primary-deep);
+  color: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+.levels-cmd code {
+  font-family: var(--mono);
+  background: rgba(16, 185, 129, 0.20);
+  color: var(--accent-soft);
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+.levels-cmd span { color: rgba(255, 255, 255, 0.7); }
+</style>
+
+<!-- ── COMO FUNCIONA ──────────────────────────────────── -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="eyebrow reveal">Pipeline · 8 etapas</div>
+    <h2 class="section-title reveal">Como uma <em>proposta</em><br/>vira realidade.</h2>
+    <p class="section-lede reveal">Cada etapa tem subagente especializado. Três <strong>quality gates humanos</strong> (estratégia, design, final) garantem que o resultado seja seu — não da IA. Toda fase tem snapshot pra você poder voltar atrás.</p>
+
+    <div class="flow">
+      <div class="flow-step reveal">
+        <span class="flow-num">01</span>
+        <h3 class="flow-name">Briefing</h3>
+        <p class="flow-desc">7 blocos · ~25 perguntas. Captura cliente, nicho, oferta, restrições, modelo de parceria preferido.</p>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">02</span>
+        <h3 class="flow-name">Researcher</h3>
+        <p class="flow-desc">Decupa site/perfil do cliente. Usa WebFetch pra coletar stats reais, identidade visual, tom de voz.</p>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">03</span>
+        <h3 class="flow-name">Strategist</h3>
+        <p class="flow-desc">Mapeia 6 oportunidades concretas + 6 produtos viáveis pro nicho. Consulta library de archetypes.</p>
+        <span class="flow-gate">Quality Gate 1</span>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">04</span>
+        <h3 class="flow-name">Designer</h3>
+        <p class="flow-desc">Extrai paleta do cliente OU escolhe do nicho. Define tipografia (Bricolage, Fraunces, Geist...).</p>
+        <span class="flow-gate">Quality Gate 2</span>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">05</span>
+        <h3 class="flow-name">Copywriter</h3>
+        <p class="flow-desc">Escreve copy dos slides em tom direto e premium. Sem corporativês, sem clichê.</p>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">06</span>
+        <h3 class="flow-name">Builder</h3>
+        <p class="flow-desc">Monta HTML/CSS/JS puro. Testa servidor local. Produz pasta completa com assets.</p>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">07</span>
+        <h3 class="flow-name">Validador</h3>
+        <p class="flow-desc">36 critérios estruturais + 6 bloqueadores éticos. Veredito automático. Bloqueia entrega se violar ética.</p>
+        <span class="flow-gate">Quality Gate 3</span>
+      </div>
+      <div class="flow-step reveal">
+        <span class="flow-num">08</span>
+        <h3 class="flow-name">Entrega</h3>
+        <p class="flow-desc">Pasta self-contained. HTML pronto pra apresentar, exportar PDF ou deploy Vercel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 12 SLIDES ──────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">A estrutura</div>
+    <h2 class="section-title reveal">Os <em>12 slides canônicos</em>.</h2>
+    <p class="section-lede reveal">Toda proposta segue essa arquitetura — herdada de boas práticas de pitch B2B premium. Cada slide tem propósito narrativo claro: do reconhecimento do cliente ao fechamento concreto.</p>
+
+    <div class="slides-grid">
+      <div class="slide-row reveal"><span class="slide-row-num">01</span><div><div class="slide-row-name">Capa</div><div class="slide-row-desc">Identidade do cliente · posicionamento</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">02</span><div><div class="slide-row-name">Espelho</div><div class="slide-row-desc">Devolver os números (8 stats animados)</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">03</span><div><div class="slide-row-name">Quem é</div><div class="slide-row-desc">Bio editorial com quote real</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">04</span><div><div class="slide-row-name">O que preservar</div><div class="slide-row-desc">5 pontos fortes em cards</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">05</span><div><div class="slide-row-name">Oportunidades</div><div class="slide-row-desc">6 ganhos mensuráveis em tabela</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">06</span><div><div class="slide-row-name">Direção criativa</div><div class="slide-row-desc">Paleta + tipografia + 3 princípios</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">07</span><div><div class="slide-row-name">Mockup/site</div><div class="slide-row-desc">Site atual ou mockup novo</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">08</span><div><div class="slide-row-name">Os 6 produtos</div><div class="slide-row-desc">Cards com mocks visuais e receita</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">09</span><div><div class="slide-row-name">Projeção</div><div class="slide-row-desc">Tabela conservadora + barras</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">10</span><div><div class="slide-row-name">Modelos de parceria</div><div class="slide-row-desc">3 cards (Service · JV · Equity)</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">11</span><div><div class="slide-row-name">Roadmap</div><div class="slide-row-desc">Timeline horizontal de 6 marcos</div></div></div>
+      <div class="slide-row reveal"><span class="slide-row-num">12</span><div><div class="slide-row-name">CTA final</div><div class="slide-row-desc">Promessa concreta de 30 dias</div></div></div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <div class="eyebrow reveal" style="margin-bottom: 16px;">Slides extras opcionais (ondas)</div>
+      <div class="slides-grid">
+        <div class="slide-row extra reveal"><span class="slide-row-num">+</span><div><div class="slide-row-name">Quem propõe</div><div class="slide-row-desc">Pra novos clientes que não conhecem você</div></div></div>
+        <div class="slide-row extra reveal"><span class="slide-row-num">+</span><div><div class="slide-row-name">Cases & Resultados</div><div class="slide-row-desc">Prova social tangível antes da projeção</div></div></div>
+        <div class="slide-row extra reveal"><span class="slide-row-num">+</span><div><div class="slide-row-name">FAQ + Riscos</div><div class="slide-row-desc">Fechar objeções antes do CTA final</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRINCIPLES (DARK) ──────────────────────────────── -->
+<section class="section dark">
+  <div class="container">
+    <div class="eyebrow reveal">Inegociáveis</div>
+    <h2 class="section-title reveal">Os 6 <em>princípios</em><br/>que regem toda proposta.</h2>
+    <p class="section-lede reveal">Estes não são "boas práticas opcionais" — são as fundações da skill. Violar qualquer um deles bloqueia a entrega no validador.</p>
+
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="principle-icon">1</div>
+        <h3>Pesquisa antes de propor</h3>
+        <p>Decupar o cliente, entender o nicho, mapear restrições reais (CFM, OAB, compliance). Nunca propor genérico.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-icon">2</div>
+        <h3>Oportunidades mensuráveis</h3>
+        <p>Cada oportunidade tem 3 colunas: <strong>o que evoluir · por que é real · onde está o ganho</strong>. Sem vagueza tipo "melhorar SEO".</p>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-icon">3</div>
+        <h3>Produtos viáveis pro nicho</h3>
+        <p>Médico não promete cura. Advogado não dá garantia. Coach financeiro não garante retorno. Library de archetypes filtra.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-icon">4</div>
+        <h3>Identidade visual absorvida</h3>
+        <p>Paleta vem do cliente quando há site. Tipografia segue o tom (médico → Fraunces, místico → Cormorant, tech → Geist).</p>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-icon">5</div>
+        <h3>Modelo de parceria ético</h3>
+        <p>Sempre 3 opções. JV recomendado padrão. Receita médica/legal direta NÃO entra em split — apenas produtos novos.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-icon">6</div>
+        <h3>CTA final concreto</h3>
+        <p>Promessa de 30 dias com algo mensurável. "Em 30 dias: telemedicina ao vivo + 5 artigos SEO" — não "começamos a parceria".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMO INVOCAR ───────────────────────────────────── -->
+<section class="section alt">
+  <div class="container">
+    <div class="eyebrow reveal">Como usar</div>
+    <h2 class="section-title reveal">Comandos <em>de invocação</em>.</h2>
+    <p class="section-lede reveal">A skill suporta múltiplos modos de uso — desde pipeline completo com 3 quality gates até autopilot pra prototipagem rápida.</p>
+
+    <div class="commands">
+      <div class="cmd-card reveal">
+        <span class="cmd-card-label">Pipeline completo</span>
+        <code class="cmd-card-code"><span class="kw">/proposta-comercial</span>                       <span class="cmt"># briefing interativo</span>
+<span class="kw">/proposta-comercial</span> https://cliente.com.br
+<span class="kw">/proposta-comercial</span> @briefing.md</code>
+        <p class="cmd-card-desc">Briefing interativo, com URL pré-fornecida, ou com briefing já preenchido em arquivo.</p>
+      </div>
+
+      <div class="cmd-card reveal">
+        <span class="cmd-card-label">Modos de execução</span>
+        <code class="cmd-card-code"><span class="kw">/proposta-comercial</span> --mode=full       <span class="cmt"># 3 gates · default</span>
+<span class="kw">/proposta-comercial</span> --mode=express    <span class="cmt"># 8 perguntas · 1 gate</span>
+<span class="kw">/proposta-comercial</span> --mode=handson    <span class="cmt"># passo a passo</span>
+<span class="kw">/proposta-comercial</span> --mode=autopilot  <span class="cmt"># zero gates</span></code>
+        <p class="cmd-card-desc">Adapte ao tipo de cliente: full pra ticket alto, express pra cliente conhecido, autopilot pra demos.</p>
+      </div>
+
+      <div class="cmd-card reveal">
+        <span class="cmd-card-label">Sub-skills modulares</span>
+        <code class="cmd-card-code"><span class="kw">/proposta-comercial:briefing</span>
+<span class="kw">/proposta-comercial:revise</span> design
+<span class="kw">/proposta-comercial:revise</span> copy
+<span class="kw">/proposta-comercial:validate</span>
+<span class="kw">/proposta-comercial:variant</span> new design</code>
+        <p class="cmd-card-desc">Regenere apenas partes específicas (design, copy) sem refazer tudo. Ideal pra iteração rápida.</p>
+      </div>
+
+      <div class="cmd-card reveal">
+        <span class="cmd-card-label">Variantes (A/B test)</span>
+        <code class="cmd-card-code"><span class="kw">/variant</span> new design       <span class="cmt"># cria V2 com nova paleta</span>
+<span class="kw">/variant</span> compare v1 v2  <span class="cmt"># diff lado a lado</span>
+<span class="kw">/variant</span> promote v2     <span class="cmt"># V2 vira principal</span></code>
+        <p class="cmd-card-desc">Teste duas direções estratégicas sem refazer. Cada variante tem snapshot próprio em STATE.json.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MODOS TABELA ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Modos · escolha</div>
+    <h2 class="section-title reveal">Qual modo <em>pra qual cenário</em>.</h2>
+
+    <table class="modes-table reveal">
+      <thead>
+        <tr>
+          <th>Modo</th>
+          <th>Quality Gates</th>
+          <th>Velocidade</th>
+          <th>Quando usar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="mode-name">full</span></td>
+          <td>3 (estratégia, design, final)</td>
+          <td>Médio</td>
+          <td>Cliente novo, ticket alto, primeiro projeto</td>
+        </tr>
+        <tr>
+          <td><span class="mode-name">express</span></td>
+          <td>1 (final)</td>
+          <td>Rápido</td>
+          <td>Cliente conhecido, projeto similar a anterior</td>
+        </tr>
+        <tr>
+          <td><span class="mode-name">handson</span></td>
+          <td>Todos (passo a passo)</td>
+          <td>Lento</td>
+          <td>Cliente complexo, regulamentação sensível</td>
+        </tr>
+        <tr>
+          <td><span class="mode-name">autopilot</span></td>
+          <td>Zero gates humanos</td>
+          <td>Mais rápido</td>
+          <td>Demos, exploração, prototipagem</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── VALIDADOR ──────────────────────────────────────── -->
+<section class="section alt">
+  <div class="container">
+    <div class="eyebrow reveal">Validador automático</div>
+    <h2 class="section-title reveal">36 critérios <em>+ 6 bloqueadores éticos</em>.</h2>
+    <p class="section-lede reveal">Toda proposta passa por validação estrutural e ética antes da entrega. Se qualquer bloqueador ético dispara, a entrega é <strong>BLOQUEADA — sem exceção</strong>.</p>
+
+    <div class="validator-card reveal">
+      <pre class="validator-output"><span class="ok">✓</span> [E1] pitch.html existe
+<span class="ok">✓</span> [E2] pitch.html tem os 12 slides
+<span class="ok">✓</span> [E3] pitch.html sem placeholders {{}}
+<span class="ok">✓</span> [E4] CTA final menciona '30 dias' ou prazo concreto
+<span class="ok">✓</span> [E5] Disclaimer ético na projeção
+<span class="ok">✓</span> [F1-F5] HTML válido · viewport · noindex · paths relativos · IO
+<span class="ok">✓</span> [E1-E6 ÉTICO] sem garantia · sem antes/depois · sem superlativo
+                      stats com fonte · quote real · sem ethics_blockers
+
+───────────────────────────────────────────────────────
+  ✓ OK:        36
+  ⚠ Warning:   0
+  ✗ Fail:      0
+  🚨 Ético:    0
+───────────────────────────────────────────────────────
+
+<span class="verdict">✅ VEREDITO: PRONTO PRA APRESENTAR</span></pre>
+    </div>
+
+    <div class="crit-grid">
+      <div class="crit-block reveal">
+        <h4>Critérios estruturais (E1-E5, F1-F5)</h4>
+        <ul>
+          <li>pitch.html existe e tem os 12 slides</li>
+          <li>Sem placeholders {{}} restantes</li>
+          <li>CTA final menciona '30 dias' ou prazo concreto</li>
+          <li>Disclaimer ético na projeção financeira</li>
+          <li>HTML válido · viewport meta · noindex (confidencial)</li>
+          <li>Caminhos de assets RELATIVOS (não absolutos)</li>
+          <li>JS animation (IntersectionObserver) presente</li>
+        </ul>
+      </div>
+      <div class="crit-block ethics reveal">
+        <h4>Bloqueadores éticos (E1-E6)</h4>
+        <ul>
+          <li>Sem garantia de cura/resultado financeiro</li>
+          <li>Sem antes/depois (médico/estético)</li>
+          <li>Sem 'melhor', 'único' superlativos absolutos</li>
+          <li>Stats têm fonte (researcher/briefing)</li>
+          <li>Quote do slide 03 não é genérica</li>
+          <li>STATE.json sem ethics_blockers ativos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="forbidden reveal">
+      <h3>Outputs proibidos (gatilhos de bloqueio)</h3>
+      <ul>
+        <li>Stats fictícios ("90% dos clientes voltam" sem base verificável)</li>
+        <li>Garantias de resultado financeiro</li>
+        <li>Antes/depois em nichos médico/estético</li>
+        <li>Promessas que ferem regulamentação do nicho</li>
+        <li>Quotes inventadas de pacientes/clientes</li>
+        <li>Superlativos absolutos sem evidência ("melhor", "único")</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIBS DE ENCANTAMENTO ───────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Catálogo opcional · ux-ui skill</div>
+    <h2 class="section-title reveal">6 libs de <em>encantamento visual</em>.</h2>
+    <p class="section-lede reveal">A skill <code>ux-ui</code> mantém catálogo de libs validadas pra adicionar magia visual. Catálogo completo em <code>~/.claude/skills/ux-ui/SKILL.md</code>.</p>
+
+    <div class="libs-grid">
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">Anime.js</div>
+          <div class="lib-weight">~17kb</div>
+        </div>
+        <p class="lib-desc">Timelines de animação com easing customizado, stagger automático. Coreografar entradas, animar orbs e cards em cascata.</p>
+        <div class="lib-when">v3.2.2 · Quando: entrada de slides, cards, navegação</div>
+      </div>
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">Splitting.js</div>
+          <div class="lib-weight">~5kb</div>
+        </div>
+        <p class="lib-desc">Quebra texto em chars/words pra animar letra por letra. Combina perfeito com Anime.js stagger.</p>
+        <div class="lib-when">v1.0.6 · Quando: títulos cinematográficos de capa</div>
+      </div>
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">CountUp.js</div>
+          <div class="lib-weight">~3kb</div>
+        </div>
+        <p class="lib-desc">Anima números de 0 → valor com easing. Suporta separadores PT-BR (ponto + vírgula).</p>
+        <div class="lib-when">v2.8.0 · Quando: stats de hero, KPIs, métricas de proof</div>
+      </div>
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">vanilla-tilt</div>
+          <div class="lib-weight">~8kb</div>
+        </div>
+        <p class="lib-desc">Cards 3D Apple-style com glare ao passar o mouse. Premium pra cards de produto/plano.</p>
+        <div class="lib-when">v1.8.1 · Quando: cards hero, pricing, portfolio</div>
+      </div>
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">GSAP + ScrollTrigger</div>
+          <div class="lib-weight">~70kb</div>
+        </div>
+        <p class="lib-desc">Animações ligadas ao scroll. Parallax, pinning, fade-on-enter. Cuidado com scroll-snap.</p>
+        <div class="lib-when">v3.12.5 · Quando: LP narrativa, parallax de hero</div>
+      </div>
+      <div class="lib-card reveal">
+        <div class="lib-card-head">
+          <div class="lib-name">canvas-confetti</div>
+          <div class="lib-weight">~2kb</div>
+        </div>
+        <p class="lib-desc">Burst de confete em cliques de celebração. Customizável: cores, ângulo, gravidade.</p>
+        <div class="lib-when">v1.9.3 · Quando: clique em CTA principal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── O QUE VOCÊ RECEBE ──────────────────────────────── -->
+<section class="section alt" id="caso-real">
+  <div class="container">
+    <div class="eyebrow reveal">O que você recebe</div>
+    <h2 class="section-title reveal">Entregáveis <em>profissionais</em>.</h2>
+    <p class="section-lede reveal">Cada proposta gerada vem com pasta completa, validador automático aprovando, e HTML interativo pronto pra apresentar ao vivo, exportar PDF ou subir como link privado.</p>
+
+    <div class="case-card reveal">
+      <div class="case-card-meta">
+        <span class="case-tag">SAÍDA · PASTA COMPLETA</span>
+        <h3>O que vem em cada projeto</h3>
+        <p><strong>pitch.html</strong> — apresentação principal com scroll editorial e identidade visual customizada</p>
+        <p><strong>style-tokens.css</strong> — variáveis CSS (paleta + tipografia)</p>
+        <p><strong>analise-privada.md</strong> — matriz de pensamento (NÃO compartilhar com cliente)</p>
+        <p><strong>briefing-preenchido.md</strong> — captura do briefing pra histórico</p>
+        <p><strong>STATE.json</strong> — fases, aprovações, snapshots reversíveis</p>
+        <p><strong>assets/</strong> — fotos do cliente, logos, screenshots</p>
+      </div>
+      <div>
+        <div class="case-stats">
+          <div class="case-stat">
+            <strong>8-15</strong>
+            <span>Slides (por nível)</span>
+          </div>
+          <div class="case-stat">
+            <strong>3</strong>
+            <span>Modelos parceria</span>
+          </div>
+          <div class="case-stat">
+            <strong>36/36</strong>
+            <span>Validador</span>
+          </div>
+          <div class="case-stat">
+            <strong>6</strong>
+            <span>Bloqueadores éticos</span>
+          </div>
+          <div class="case-stat">
+            <strong>5</strong>
+            <span>Subagentes</span>
+          </div>
+          <div class="case-stat">
+            <strong>10+</strong>
+            <span>Paletas por nicho</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROADMAP ────────────────────────────────────────── -->
+<section class="section dark">
+  <div class="container">
+    <div class="eyebrow reveal">Próximos passos</div>
+    <h2 class="section-title reveal">Roadmap <em>pós-lançamento</em>.</h2>
+    <p class="section-lede reveal">A skill v2.0 está pronta. Mas a próxima onda já está mapeada — e foca em ampliar o ecossistema de qualidade visual e estratégica.</p>
+
+    <ul class="roadmap-list">
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status done">Done</span>
+        <div class="roadmap-text">Skill <code>/ux-ui-audit</code> criada em <code>~/.claude/skills/ux-ui-audit/SKILL.md</code> — auditor final com 8 etapas, relatório priorizado alta/média/baixa, opção <code>--apply</code> com aprovação humana</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status done">Done</span>
+        <div class="roadmap-text">Catálogo das 6 libs validadas adicionado em <code>~/.claude/skills/ux-ui/SKILL.md</code></div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status done">Done</span>
+        <div class="roadmap-text">Catálogo expandido: 16 libs adicionais (Lenis, Lottie, Locomotive, Swiper, Embla, Motion One, AOS, Mo.js, Rive, Chart.js, Chroma.js, etc)</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status todo">A fazer</span>
+        <div class="roadmap-text">Templates de proposta por nicho (médico, advogado, coach financeiro, creator economy)</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status todo">A fazer</span>
+        <div class="roadmap-text">Exportador automático Vercel/Netlify embutido na skill</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status todo">A fazer</span>
+        <div class="roadmap-text">Cal.com integrado no slide CTA + QR code pra compartilhar a proposta</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status todo">A fazer</span>
+        <div class="roadmap-text">Mock de vídeo intro (Loom embed) no slide capa</div>
+      </li>
+      <li class="roadmap-item reveal">
+        <span class="roadmap-status todo">A fazer</span>
+        <div class="roadmap-text">Tabela comparativa com alternativas (CMO interno vs JV vs agência)</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <h3>Skill · proposta-comercial</h3>
+    <p>v2.1 · MIT License · 2026 · feita por <a href="https://instagram.com/thidebrito">Thiago Brito · @thidebrito</a></p>
+    <div class="footer-links">
+      <a href="README.md">README.md</a>
+      <a href="HANDOFF.md">HANDOFF.md</a>
+      <a href="SKILL.md">SKILL.md</a>
+      <a href="BRIEFING.md">BRIEFING.md</a>
+      <a href="SECURITY.md">SECURITY.md</a>
+    </div>
+    <div class="footer-links" style="margin-top:18px">
+      <a href="https://www.thidebrito.com.br">🌐 thidebrito.com.br</a>
+      <a href="https://instagram.com/thidebrito">📷 Instagram</a>
+      <a href="https://github.com/thidebrito">🐙 GitHub</a>
+    </div>
+    <div class="footer-meta">
+      Skill location após instalação: ~/.claude/skills/proposta-comercial/
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

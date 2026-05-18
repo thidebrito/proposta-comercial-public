@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Presets de tom de voz pra cada nicho. Copywriter usa esses presets pra calibrar o tom em todos os 12 slides."
+  },
+  "presets": [
+    {
+      "id": "medical-institutional",
+      "name": "Médico-institucional",
+      "fits": ["medico", "clinica", "saude", "hospital"],
+      "voice": "Sóbrio, científico, premium. Informações precisas. Sem sensacionalismo. Acolhimento humano, não comercial.",
+      "language": {
+        "use": ["referência consultada", "diagnóstico precoce", "tecnologia minimamente invasiva", "padrão-ouro mundial", "evidência científica"],
+        "avoid": ["milagre", "transforma sua vida", "garantido", "único no Brasil", "melhor", "imperdível", "exclusivo"]
+      },
+      "examples": {
+        "headline": "Cuidado [especialidade] de excelência, com a precisão da [tecnologia diferencial]",
+        "lede": "Mais de uma década formando-se nas instituições mais respeitadas do país — para oferecer o que há de mais moderno em [área]",
+        "cta": "Agendar consulta pelo WhatsApp"
+      },
+      "punctuation_style": "Pontuação clássica. Frases médias (15-25 palavras). Períodos completos. Pouco emoji (📍 📞 OK)."
+    },
+    {
+      "id": "mystic-feminine",
+      "name": "Místico-feminino",
+      "fits": ["espiritualidade", "tarot", "ciganagem", "holistico"],
+      "voice": "Quente, editorial, sagrado contemporâneo. Frases curtas com peso. Linguagem semi-poética sem ser piegas.",
+      "language": {
+        "use": ["você inteira", "ao seu próprio ritmo", "presença plena", "memória ancestral", "ponte entre mundos", "sagrado feminino"],
+        "avoid": ["solução milagrosa", "garantido", "destino certo", "energia 100% positiva", "limpeza espiritual definitiva"]
+      },
+      "examples": {
+        "headline": "Conheça-te a ti mesmo<br/>e <em>liberte-se</em>",
+        "lede": "Onde a [técnica 1] encontra o [conceito espiritual 2]. Atendimento online, do Brasil para o mundo.",
+        "cta": "Quero cuidar de mim"
+      },
+      "punctuation_style": "Frases curtas com travessões — pra criar ritmo. Italicos pra ênfase emocional. Emojis discretos (🍊 🤎 ✦)."
+    },
+    {
+      "id": "tech-modern",
+      "name": "Tech-moderno",
+      "fits": ["saas", "startup", "tech", "ai-tools", "dev"],
+      "voice": "Direto, geek, jovem. Sem corporativês. Acrônimos bem-vindos. Estilo Linear/Vercel/Notion.",
+      "language": {
+        "use": ["ship fast", "MRR", "MVP", "iteração", "build", "open-source", "API-first", "performance"],
+        "avoid": ["solução robusta para sua empresa", "transforme seu negócio", "líder de mercado", "best-in-class"]
+      },
+      "examples": {
+        "headline": "Build smaller. Ship faster.",
+        "lede": "Stack pra founders que ainda escrevem código no terminal. Zero bs, zero overhead.",
+        "cta": "Start free →"
+      },
+      "punctuation_style": "Frases curtas. Bullets diretos. Lowercase ocasional pra estilo. Sem emojis (ou emojis técnicos: → ↗ ●)."
+    },
+    {
+      "id": "executive-corporate",
+      "name": "Executivo-corporativo",
+      "fits": ["consultoria", "advogado", "auditor", "executivo", "wealth"],
+      "voice": "Formal, claro, direto. Tom de conselho de administração. Frases médias e completas. Zero gíria.",
+      "language": {
+        "use": ["estratégia integrada", "governança", "compliance", "previsibilidade", "stakeholders", "due diligence"],
+        "avoid": ["bombar resultados", "explodir vendas", "matar o jogo", "garantia de retorno", "exclusivo"]
+      },
+      "examples": {
+        "headline": "Estratégia integrada para empresas em crescimento",
+        "lede": "Atendimento direto com sócio-fundador. Diagnóstico, plano executável, acompanhamento próximo.",
+        "cta": "Agendar diagnóstico"
+      },
+      "punctuation_style": "Pontuação clássica e impecável. Frases médias-longas. Zero emoji."
+    },
+    {
+      "id": "performance-direct",
+      "name": "Performance-direto",
+      "fits": ["coach", "fitness", "biohacking", "alta-performance"],
+      "voice": "Energético, direto, motivacional. Frases curtas. Tom 'sem desculpa, vamos'.",
+      "language": {
+        "use": ["resultados reais", "execução", "disciplina", "vamos juntos", "processo", "transformação concreta", "ação"],
+        "avoid": ["passe de mágica", "milagre", "ganhe sem esforço", "do dia pra noite"]
+      },
+      "examples": {
+        "headline": "Resultados que ficam.<br/>Sem atalho. Sem firula.",
+        "lede": "Mentoria 1:1 pra quem está cansado de programa que não termina. Aqui é processo, não promessa.",
+        "cta": "Quero entrar"
+      },
+      "punctuation_style": "Frases curtas/médias. Pontos finais (não reticências). Zero emoji ou emojis fortes (💪 🔥)."
+    },
+    {
+      "id": "academic-gentle",
+      "name": "Acadêmico-gentil",
+      "fits": ["educacao", "psicologia", "saude-mental", "pediatria"],
+      "voice": "Didático, gentil, profundo. Mostra que entende quem está do outro lado. Calma e segurança.",
+      "language": {
+        "use": ["acolhimento", "no seu ritmo", "evidência clínica", "literatura científica", "construção em conjunto", "autonomia"],
+        "avoid": ["cura definitiva", "100% garantido", "transformação radical", "antes/depois"]
+      },
+      "examples": {
+        "headline": "Cuidado clínico com escuta de verdade.",
+        "lede": "Atendimento estruturado em evidência, com tempo pra você ser ouvida — não só medicada.",
+        "cta": "Agendar primeira consulta"
+      },
+      "punctuation_style": "Frases médias. Vírgulas longas pra calma. Sem emoji ou apenas ●."
+    },
+    {
+      "id": "editorial-creative",
+      "name": "Editorial-criativo",
+      "fits": ["designer", "fotografo", "agencia-criativa", "moda", "lifestyle"],
+      "voice": "Sofisticado, design-first. Frases polidas. Vocabulário rico mas não rebuscado.",
+      "language": {
+        "use": ["sistema visual", "linguagem coerente", "narrativa de marca", "presença distinta", "decisões intencionais"],
+        "avoid": ["barato", "rápido", "viralizar", "engajamento alto", "logo pronto em 24h"]
+      },
+      "examples": {
+        "headline": "Marcas que <em>permanecem</em>.",
+        "lede": "Estúdio boutique de identidade visual — 4 projetos por trimestre, fundador no detalhe.",
+        "cta": "Conversar"
+      },
+      "punctuation_style": "Frases curtas, italicas estratégicas, espaçamento generoso. Sem emoji."
+    }
+  ],
+  "selection_logic": {
+    "step_1": "Cliente escolheu tom no Bloco 7 do briefing",
+    "step_2": "Mapear escolha pra um dos presets acima",
+    "step_3": "Copywriter usa preset em todos os slides (consistente)",
+    "step_4": "Se cliente especificou tom personalizado → criar preset híbrido"
+  }
+}

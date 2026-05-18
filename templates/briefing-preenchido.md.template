@@ -1,0 +1,182 @@
+# Briefing Preenchido — {{NOME_CLIENTE}}
+
+> Capturado em {{DATA_BRIEFING}} via skill `proposta-comercial`
+> Status: {{STATUS}} (rascunho · revisado · aprovado)
+
+---
+
+## Bloco 1 · Quem é o cliente
+
+| Campo | Resposta |
+|---|---|
+| Nome / nome profissional | {{NOME_CLIENTE}} |
+| Nicho / especialidade | {{NICHO}} |
+| Cidade · país · online? | {{LOCALIZACAO}} |
+| Anos de mercado | {{ANOS_MERCADO}} |
+| Posicionamento atual | {{POSICIONAMENTO_ATUAL}} |
+
+## Bloco 2 · Presença digital
+
+| Plataforma | Link / Handle | Stats |
+|---|---|---|
+| Site oficial | {{URL_SITE}} | {{TRAFEGO_SITE}} |
+| Instagram | {{HANDLE_INSTAGRAM}} | {{SEGUIDORES_IG}} |
+| LinkedIn | {{URL_LINKEDIN}} | {{CONNECTIONS_LINKEDIN}} |
+| YouTube | {{URL_YOUTUBE}} | {{INSCRITOS_YT}} |
+| Doctoralia / Google | {{URL_AVALIACOES}} | {{NOTA}} · {{QTD_AVALIACOES}} |
+| Mídia (já saiu em) | {{MIDIA}} | — |
+
+## Bloco 3 · Operação atual
+
+### Principais ofertas
+
+| # | Oferta | Ticket | Volume mensal |
+|---|---|---|---|
+| 1 | {{OFERTA_1_NOME}} | {{OFERTA_1_TICKET}} | {{OFERTA_1_VOLUME}} |
+| 2 | {{OFERTA_2_NOME}} | {{OFERTA_2_TICKET}} | {{OFERTA_2_VOLUME}} |
+| 3 | {{OFERTA_3_NOME}} | {{OFERTA_3_TICKET}} | {{OFERTA_3_VOLUME}} |
+
+### Captação atual
+
+- **Canal principal:** {{CANAL_1}} ({{PERCENTUAL_1}}%)
+- **Canal secundário:** {{CANAL_2}} ({{PERCENTUAL_2}}%)
+- **Outros:** {{CANAIS_OUTROS}}
+
+### Tráfego do site
+
+{{INFO_TRAFEGO}}
+
+## Bloco 4 · Diferenciais reais
+
+### O que o cliente tem que poucos têm
+
+1. **{{DIFERENCIAL_1}}** — {{DIFERENCIAL_1_DESC}}
+2. **{{DIFERENCIAL_2}}** — {{DIFERENCIAL_2_DESC}}
+3. **{{DIFERENCIAL_3}}** — {{DIFERENCIAL_3_DESC}}
+
+### Formação acadêmica relevante
+
+{{FORMACAO_ACADEMICA}}
+
+### Provas sociais quantificadas
+
+- {{PROVA_1}}
+- {{PROVA_2}}
+- {{PROVA_3}}
+
+### Fotos disponíveis
+
+- [ ] Headshot profissional
+- [ ] Ambiente de trabalho
+- [ ] Equipe / sócios
+- [ ] Eventos / lives anteriores
+
+> **Status atual das fotos:** {{STATUS_FOTOS}}
+
+## Bloco 5 · Restrições do nicho
+
+### Regulamentação aplicável
+
+{{REGULAMENTACAO}}
+
+### O que NÃO pode prometer/dizer
+
+- {{RESTRICAO_1}}
+- {{RESTRICAO_2}}
+- {{RESTRICAO_3}}
+
+### Tom de voz preferido
+
+> {{TOM_DE_VOZ}}
+
+Preset escolhido: `{{PRESET_TOM}}` (ver `library/tone-presets.json`)
+
+## Bloco 6 · Meta da proposta
+
+### Por que essa parceria existe
+
+{{MOTIVACAO_PARCERIA}}
+
+### O que VOCÊ traz pra mesa
+
+{{HABILIDADES_DO_PROPONENTE}}
+
+### Modelo de parceria preferido
+
+- [ ] **A — Service + Royalty** (paga setup + % de produtos novos por 24m)
+- [ ] **B — Joint Venture · 60/40** (recomendado · sem desembolso)
+- [ ] **C — Equity / Empresa nova** (sociedade formal)
+- [ ] **Híbrido:** {{HIBRIDO}}
+
+### Investimento que pretende fazer
+
+- **Tempo:** {{INVESTIMENTO_TEMPO}}
+- **Recurso:** {{INVESTIMENTO_RECURSO}}
+
+## Bloco 7 · Direção visual
+
+### ID visual existente
+
+- [ ] **Sim, e quero usar a mesma** → researcher extrai
+- [ ] **Sim, mas quero evoluir** → designer propõe baseado na atual
+- [ ] **Não tem** → designer cria do zero
+
+### Cores do cliente (se aplicável)
+
+{{CORES_CLIENTE}}
+
+Paleta escolhida: `{{ID_PALETA}}` (ver `library/color-palettes.json`)
+
+### Tipografia
+
+Par escolhido: `{{ID_TIPOGRAFIA}}` (ver `library/typography-pairs.json`)
+
+### Estética geral
+
+- [ ] Clean institucional
+- [ ] Editorial premium
+- [ ] Místico-quente
+- [ ] Tech-moderno
+- [ ] Performance-direto
+- [ ] Acadêmico-gentil
+
+### Idioma do pitch
+
+- [ ] 🇧🇷 PT-BR
+- [ ] 🇵🇹 PT-PT
+- [ ] 🇺🇸 EN
+- [ ] Outro: {{IDIOMA_OUTRO}}
+
+---
+
+## Bloco bônus · Detalhes que melhoram o pitch
+
+- **Vídeo do cliente disponível?** {{VIDEO_CLIENTE}}
+- **Cases pra citar?** {{CASES}}
+- **Data limite pra apresentar?** {{DATA_LIMITE}}
+- **Reunião marcada?** {{REUNIAO_MARCADA}}
+- **Relação com o cliente?** {{RELACAO_CLIENTE}}
+
+---
+
+## Validação automática
+
+- [ ] Bloco 1 100% preenchido
+- [ ] Bloco 2 tem pelo menos 1 URL
+- [ ] Bloco 3 tem ofertas + tickets
+- [ ] Bloco 5 explicita regulamentação
+- [ ] Bloco 6 tem motivação + modelo de parceria
+- [ ] Bloco 7 tem decisão visual
+
+> **Skill autoriza seguir pra researcher?** {{AUTORIZA_RESEARCHER}}
+
+---
+
+## Próximos passos
+
+1. ⏳ Researcher decupa o cliente (tempo: ~3-5 min)
+2. ⏳ Strategist propõe oportunidades + produtos
+3. ⏳ Designer extrai/define paleta + tipografia
+4. ⏳ Copywriter gera copy dos 12 slides
+5. ⏳ Builder monta HTML final
+6. ✅ Pitch entregue

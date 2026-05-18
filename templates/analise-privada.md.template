@@ -1,0 +1,216 @@
+# Análise Privada — {{NOME_CLIENTE}}
+
+> 🔒 **CONFIDENCIAL · NÃO COMPARTILHAR COM O CLIENTE**
+>
+> Esse documento é a matriz de pensamento crítico que sustenta o pitch. Tem análises honestas que NÃO entram na apresentação.
+
+---
+
+## 1. Quem é o cliente real
+
+- **Perfil profissional:** {{PERFIL_PROFISSIONAL}}
+- **Faixa de receita atual (estimativa):** {{FAIXA_RECEITA}}
+- **Onde está hoje:** {{POSICAO_ATUAL_MERCADO}}
+- **Onde quer estar em 12m (declarado):** {{META_CLIENTE_12M}}
+
+## 2. Quem é o paciente / cliente / aluno dele
+
+- **Demografia:** {{DEMOGRAFIA_PUBLICO}}
+- **Classe social:** {{CLASSE_SOCIAL}}
+- **Localização típica:** {{LOCALIZACAO_PUBLICO}}
+- **Jornada típica:**
+  - Como descobre o cliente: {{COMO_DESCOBRE}}
+  - O que faz antes de fechar: {{ANTES_FECHAR}}
+  - Tempo de decisão: {{TEMPO_DECISAO}}
+
+## 3. Onde está o dinheiro de verdade (LTV por produto)
+
+| Produto | Ticket realista | Frequência | LTV |
+|---|---|---|---|
+| {{PRODUTO_PRINCIPAL_1}} | {{TICKET_1}} | {{FREQ_1}} | {{LTV_1}} |
+| {{PRODUTO_PRINCIPAL_2}} | {{TICKET_2}} | {{FREQ_2}} | {{LTV_2}} |
+| {{PRODUTO_PRINCIPAL_3}} | {{TICKET_3}} | {{FREQ_3}} | {{LTV_3}} |
+
+> **Conclusão:** {{CONCLUSAO_LTV}}
+
+## 4. O que move um cliente desse perfil a fechar
+
+1. **{{MOTIVADOR_1}}** — {{MOTIVADOR_1_DETALHE}}
+2. **{{MOTIVADOR_2}}** — {{MOTIVADOR_2_DETALHE}}
+3. **{{MOTIVADOR_3}}** — {{MOTIVADOR_3_DETALHE}}
+
+## 5. Restrições éticas REAIS do nicho
+
+### Regulamentação específica
+
+- **Órgão:** {{ORGAO_REGULADOR}}
+- **Resoluções aplicáveis:** {{RESOLUCOES}}
+- **O que pode:** {{PODE}}
+- **O que NÃO pode:** {{NAO_PODE}}
+
+### Implicação prática pra cada produto proposto
+
+- **Produto 1:** {{COMPLIANCE_PRODUTO_1}}
+- **Produto 2:** {{COMPLIANCE_PRODUTO_2}}
+- ... (continua pros 6 produtos)
+
+## 6. Análise honesta do site/presença atual
+
+### O que JÁ está bom (verdadeiramente)
+
+1. {{PONTO_FORTE_1}}
+2. {{PONTO_FORTE_2}}
+3. {{PONTO_FORTE_3}}
+4. {{PONTO_FORTE_4}}
+5. {{PONTO_FORTE_5}}
+
+### O que de fato está deixando dinheiro na mesa
+
+1. **{{GAP_1}}** — {{GAP_1_IMPACTO}}
+2. **{{GAP_2}}** — {{GAP_2_IMPACTO}}
+3. **{{GAP_3}}** — {{GAP_3_IMPACTO}}
+4. **{{GAP_4}}** — {{GAP_4_IMPACTO}}
+5. **{{GAP_5}}** — {{GAP_5_IMPACTO}}
+6. **{{GAP_6}}** — {{GAP_6_IMPACTO}}
+
+### Pontos cegos do cliente que ELE provavelmente não vê
+
+> 🤐 **Esses são insights que NÃO entram no pitch — mas você usa pra responder objeções na reunião:**
+
+- {{PONTO_CEGO_1}}
+- {{PONTO_CEGO_2}}
+- {{PONTO_CEGO_3}}
+
+## 7. Concorrência real (não-genérica)
+
+### Concorrentes diretos identificados
+
+| Nome | Como compete | Diferencial deles | Vulnerabilidade deles |
+|---|---|---|---|
+| {{CONC_1}} | {{CONC_1_COMO}} | {{CONC_1_DIF}} | {{CONC_1_VULN}} |
+| {{CONC_2}} | {{CONC_2_COMO}} | {{CONC_2_DIF}} | {{CONC_2_VULN}} |
+| {{CONC_3}} | {{CONC_3_COMO}} | {{CONC_3_DIF}} | {{CONC_3_VULN}} |
+
+### Diferencial real do nosso cliente vs concorrentes
+
+{{DIFERENCIAL_VS_CONCORRENCIA}}
+
+## 8. As 6 oportunidades — DESCOMPACTADAS
+
+### Oportunidade 1: {{OPP_1_TITULO}}
+
+- **O que é:** {{OPP_1_DESC}}
+- **Por que é real:** {{OPP_1_REAL}}
+- **Dado de mercado:** {{OPP_1_DADO}}
+- **Implementação:** {{OPP_1_COMO}}
+- **Tempo até primeiro resultado:** {{OPP_1_TEMPO}}
+- **Custo de implementar:** {{OPP_1_CUSTO}}
+- **Receita esperada:** {{OPP_1_RECEITA}}
+
+(repetir pra 6 oportunidades)
+
+## 9. Os 6 produtos — DESCOMPACTADOS
+
+### Produto 1: {{PROD_1_NOME}}
+
+- **Tipo:** {{PROD_1_TIPO}}
+- **Modelo de receita:** {{PROD_1_MODELO}}
+- **Ticket realista:** {{PROD_1_TICKET}}
+- **Volume meta:** {{PROD_1_VOLUME}}
+- **Receita anual:** {{PROD_1_ANUAL}}
+- **Compliance:** {{PROD_1_COMPLIANCE}}
+- **Stack técnico:** {{PROD_1_STACK}}
+- **Tempo pra MVP:** {{PROD_1_TEMPO_MVP}}
+- **Risco:** {{PROD_1_RISCO}}
+
+(repetir pra 6 produtos)
+
+## 10. Modelo de parceria revisto pra ESSE caso específico
+
+### Análise honesta do encaixe ético
+
+- **Por que JV faz sentido AQUI:** {{JUSTIFICATIVA_JV}}
+- **Receita que NÃO pode entrar no split:** {{RECEITA_FORA_SPLIT}}
+- **Bônus de performance proposto:** {{BONUS_PERFORMANCE}}
+
+### Cenário de negociação
+
+- **Se cliente puxar pra Service:** aceito? quando?
+- **Se cliente puxar pra Equity:** quando faz sentido?
+- **Cláusula de saída:** {{CLAUSULA_SAIDA}}
+
+## 11. Projeção financeira detalhada
+
+### Cenário CONSERVADOR (apresentado)
+
+| Linha | Receita ano 1 | Margem | Sua parte 60% | Minha parte 40% |
+|---|---|---|---|---|
+| {{LINHA_1}} | {{REC_1}} | {{MAR_1}} | {{CL_1}} | {{EU_1}} |
+| ... | | | | |
+
+### Cenário REALISTA (não apresentado)
+
+| Linha | Receita ano 1 | Variação |
+|---|---|---|
+| {{LINHA_1}} | {{REC_REAL_1}} | +{{VAR_1}}% |
+| ... | | |
+
+### Cenário OTIMISTA (descartado por cautela)
+
+> Não apresenta — sob nenhuma circunstância — pra evitar criar expectativa irreal.
+
+## 12. Roadmap revisado · com riscos
+
+| Sem | Marco | O que entrega | Risco principal | Mitigação |
+|---|---|---|---|---|
+| 0 | Descoberta | {{ENTREGA_0}} | {{RISCO_0}} | {{MITIG_0}} |
+| 1-2 | Fundação | {{ENTREGA_1}} | {{RISCO_1}} | {{MITIG_1}} |
+| 3-4 | Primeiro produto | {{ENTREGA_2}} | {{RISCO_2}} | {{MITIG_2}} |
+| ... | | | | |
+
+## 13. CTA da reunião · objetivo real
+
+- **CTA apresentado no pitch:** {{CTA_PITCH}}
+- **CTA verdadeiro pra você:** {{CTA_REAL}}
+- **Aceite mínimo aceitável:** {{ACEITE_MINIMO}}
+- **Walk-away point:** {{WALK_AWAY}}
+
+## 14. Objeções antecipadas + resposta
+
+### Objeção 1: {{OBJECAO_1}}
+**Resposta:** {{RESPOSTA_1}}
+
+### Objeção 2: {{OBJECAO_2}}
+**Resposta:** {{RESPOSTA_2}}
+
+### Objeção 3: {{OBJECAO_3}}
+**Resposta:** {{RESPOSTA_3}}
+
+### Objeção 4: {{OBJECAO_4}}
+**Resposta:** {{RESPOSTA_4}}
+
+### Objeção 5: {{OBJECAO_5}}
+**Resposta:** {{RESPOSTA_5}}
+
+## 15. Pós-reunião — script
+
+### Se cliente disser SIM
+1. {{SIM_PASSO_1}}
+2. {{SIM_PASSO_2}}
+3. {{SIM_PASSO_3}}
+
+### Se cliente disser "vou pensar"
+- Recap em texto curto + reforço CTA dos 30 dias
+- Follow-up em D+5
+
+### Se cliente disser NÃO
+- Agradecer pela honestidade
+- Manter porta aberta (referências futuras, network)
+
+---
+
+## Anotações pessoais do consultor
+
+> Espaço livre pra você anotar o que sentiu na reunião, percepções não-formalizáveis, etc.
+
+{{ANOTACOES_LIVRES}}

@@ -1,0 +1,879 @@
+<!doctype html>
+<!-- ====================================================================
+     PITCH HTML TEMPLATE · skill proposta-comercial v1.0
+     12 slides scroll editorial · placeholders {{}} substituídos pelo builder
+     Idioma: {{IDIOMA}} · Cliente: {{NOME_CLIENTE}} · Data: {{DATA_GERACAO}}
+     ==================================================================== -->
+<html lang="{{IDIOMA}}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{NOME_CLIENTE}} · {{TITULO_PITCH}}</title>
+<meta name="description" content="{{DESCRICAO_PITCH}}" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="{{COR_PRIMARY}}" />
+<link rel="icon" type="image/svg+xml" href="{{FAVICON_URL}}" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?{{GOOGLE_FONTS_URL}}&display=swap" rel="stylesheet" />
+
+<!-- Style tokens (paleta + tipografia customizada) -->
+<link rel="stylesheet" href="style-tokens.css" />
+
+<style>
+/* ====================================================================
+   CSS DO PITCH · estrutura comum a todos os pitchs gerados pela skill
+   Tokens de cor/tipo vêm de style-tokens.css
+   ==================================================================== */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);background:var(--neutral-light);color:var(--text);
+  line-height:1.55;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--primary);color:#fff}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-0.02em;line-height:1.1;color:var(--text)}
+em{font-style:italic;color:var(--primary)}
+
+/* ----- Top bar ----- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:var(--z-modal);
+  background:rgba(255,255,255,.94);backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:12px 28px;display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;font-weight:500;
+}
+.topbar-brand{
+  display:flex;align-items:center;gap:10px;color:var(--primary);
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px;
+}
+.topbar-brand::before{content:"●";color:var(--accent)}
+.topbar-progress{flex:1;height:2px;background:var(--border);margin:0 32px;border-radius:1px;overflow:hidden;max-width:400px}
+.topbar-progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width .3s ease}
+.topbar-actions{display:flex;gap:8px;align-items:center}
+.topbar-btn{
+  padding:8px 14px;background:transparent;border:1px solid var(--border);border-radius:999px;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);font-weight:500;
+  transition:all .2s;display:flex;align-items:center;gap:6px;font-family:inherit;
+}
+.topbar-btn:hover{background:var(--text);color:#fff;border-color:var(--text)}
+.topbar-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.topbar-btn.primary:hover{background:var(--primary-deep)}
+@media (max-width:768px){.topbar-progress{display:none}.topbar{padding:10px 16px}}
+
+/* ----- Side index ----- */
+.sidedex{
+  position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:var(--z-nav);
+  display:flex;flex-direction:column;gap:10px;
+}
+.sidedex-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--border);
+  transition:all .3s;cursor:pointer;position:relative;
+}
+.sidedex-dot.active{background:var(--primary);transform:scale(1.4)}
+.sidedex-dot::after{
+  content:attr(data-label);position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);
+  white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-weight:600;
+}
+.sidedex-dot:hover::after,.sidedex-dot.active::after{opacity:1}
+@media (max-width:1024px){.sidedex{display:none}}
+
+/* ----- Slide base ----- */
+.slide{
+  min-height:100vh;
+  padding:120px var(--pad) 80px;
+  position:relative;z-index:var(--z-content);
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media (max-width:768px){.slide{padding:90px var(--pad) 60px}}
+.container{max-width:var(--container);margin:0 auto;width:100%}
+.slide-num{
+  font-family:var(--mono);
+  font-size:11px;letter-spacing:.2em;color:var(--text-mute);
+  margin-bottom:32px;display:flex;align-items:center;gap:14px;
+}
+.slide-num::after{content:"";flex:1;height:1px;background:var(--border);max-width:120px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--primary);
+  font-weight:600;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--accent)}
+.slide-title{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(46px,6vw,82px);
+  line-height:1.05;letter-spacing:-.01em;
+  margin-bottom:28px;color:var(--text);
+}
+.slide-title em{color:var(--primary);font-style:italic}
+.slide-lede{
+  font-size:20px;line-height:1.55;color:var(--text-soft);
+  max-width:760px;margin-bottom:48px;
+}
+
+/* ===========================================================
+   SLIDE 01 · COVER
+   =========================================================== */
+.cover{
+  background:linear-gradient(135deg,var(--primary-deep) 0%,var(--primary) 60%,#020817 100%);
+  color:#fff;min-height:100vh;
+  padding:140px var(--pad) 80px;overflow:hidden;position:relative;
+}
+.cover-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;pointer-events:none}
+.cover-orb.gold{background:var(--accent);width:600px;height:600px;top:-200px;right:-100px}
+.cover-orb.blue{background:var(--primary-light);width:400px;height:400px;bottom:-100px;left:10%;opacity:.3}
+.cover-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at center,black,transparent);
+  pointer-events:none;
+}
+.cover-content{position:relative;z-index:2;max-width:1100px;margin:auto 0}
+.cover-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--accent-soft);margin-bottom:48px}
+.cover-name{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(56px,11vw,140px);
+  line-height:.95;letter-spacing:-.02em;color:#fff;margin-bottom:40px;
+}
+.cover-name em{color:var(--accent-soft);font-style:italic}
+.cover-meta{
+  display:flex;gap:60px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.18);
+  padding-top:40px;margin-top:60px;max-width:900px;
+}
+.cover-meta div{font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.06em;line-height:1.5}
+.cover-meta strong{
+  display:block;font-family:var(--serif);font-size:24px;color:var(--accent-soft);
+  font-weight:500;margin-bottom:6px;font-style:italic;
+}
+.cover-bottom{
+  position:absolute;bottom:40px;left:var(--pad);right:var(--pad);
+  display:flex;justify-content:space-between;align-items:flex-end;
+  font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase;
+}
+@media (max-width:768px){.cover-bottom{flex-direction:column;gap:8px;align-items:flex-start}}
+
+/* ===========================================================
+   SLIDE 02 · ESPELHO DOS NÚMEROS
+   =========================================================== */
+.mirror-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);margin-top:40px;
+}
+@media (max-width:1024px){.mirror-grid{grid-template-columns:repeat(2,1fr)}}
+.mirror-cell{background:var(--neutral-light);padding:40px 32px;transition:background .3s}
+.mirror-cell:hover{background:var(--neutral-warm)}
+.mirror-num{
+  font-family:var(--serif);font-size:72px;line-height:.95;
+  color:var(--primary);font-weight:500;margin-bottom:14px;letter-spacing:-.02em;
+}
+.mirror-num em{color:var(--accent-deep);font-style:italic;font-size:48px;vertical-align:super}
+.mirror-label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-soft);font-weight:600;line-height:1.4}
+.mirror-tape{
+  margin-top:60px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  padding:24px 32px;background:var(--neutral-warm);border-radius:var(--radius);border:1px solid var(--border);
+}
+.mirror-tape strong{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--primary);font-weight:500}
+.credentials-marquee{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 16px;
+  font-size:13px;color:var(--text-soft);font-weight:500;
+}
+.credentials-marquee span{padding:6px 14px;background:var(--neutral-warm);border-radius:99px;border:1px solid var(--border)}
+
+/* ===========================================================
+   SLIDE 03 · BIO EDITORIAL
+   =========================================================== */
+.bio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;margin-top:40px}
+@media (max-width:1024px){.bio-grid{grid-template-columns:1fr;gap:48px}}
+.bio-quote{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:36px;line-height:1.25;color:var(--primary);
+  border-left:2px solid var(--accent);padding-left:28px;margin-bottom:36px;
+}
+.bio-text p{margin-bottom:18px;font-size:17px;color:var(--text-soft);line-height:1.65}
+.bio-text strong{color:var(--text)}
+.bio-portrait{
+  aspect-ratio:3/4;background:var(--neutral-warm);
+  border-radius:var(--radius);overflow:hidden;position:relative;
+  box-shadow:var(--shadow-lg);border:1px solid var(--border);
+}
+.bio-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.bio-portrait::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);pointer-events:none}
+.creds-strip{margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:1024px){.creds-strip{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.creds-strip{grid-template-columns:repeat(2,1fr)}}
+.cred-card{background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center}
+.cred-year{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.2em;font-weight:600;margin-bottom:8px}
+.cred-inst{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--text);line-height:1.2}
+
+/* ===========================================================
+   SLIDE 04 · O QUE PRESERVAR
+   =========================================================== */
+.preserve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+@media (max-width:1024px){.preserve-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.preserve-grid{grid-template-columns:1fr}}
+.preserve-card{
+  background:var(--neutral-warm);padding:36px 28px;border:1px solid var(--border);border-radius:var(--radius);
+  transition:all .3s;position:relative;
+}
+.preserve-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.preserve-num{
+  position:absolute;top:24px;right:24px;
+  font-family:var(--serif);font-style:italic;font-size:42px;color:var(--accent);
+  font-weight:400;line-height:1;opacity:.5;
+}
+.preserve-icon{
+  width:48px;height:48px;background:var(--primary);color:var(--accent-soft);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:22px;margin-bottom:24px;font-weight:500;
+}
+.preserve-title{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:10px;color:var(--text);line-height:1.15}
+.preserve-text{font-size:14px;color:var(--text-soft);line-height:1.55}
+
+/* ===========================================================
+   SLIDE 05 · OPORTUNIDADES (TABELA 4 COLUNAS)
+   =========================================================== */
+.opp-table{
+  width:100%;border-collapse:separate;border-spacing:0;margin-top:40px;
+  border:1px solid var(--border);background:var(--neutral-warm);border-radius:var(--radius);overflow:hidden;
+}
+.opp-table thead{background:var(--primary);color:#fff}
+.opp-table th{text-align:left;padding:18px 24px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;font-family:var(--sans)}
+.opp-table td{padding:24px;border-top:1px solid var(--border);vertical-align:top;font-size:15px;color:var(--text)}
+.opp-table tr:hover td{background:rgba(201,169,97,.06)}
+.opp-icon{
+  width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--primary-deep);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:16px;font-weight:600;
+}
+.opp-impact{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--primary);font-weight:500;line-height:1.3}
+@media (max-width:768px){
+  .opp-table thead{display:none}
+  .opp-table tr{display:block;padding:20px;border-top:1px solid var(--border)}
+  .opp-table td{display:block;padding:6px 0;border:none;font-size:14px}
+}
+
+/* ===========================================================
+   SLIDE 06 · DIREÇÃO CRIATIVA (PALETA + TIPOGRAFIA)
+   =========================================================== */
+.moodboard{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media (max-width:1024px){.moodboard{grid-template-columns:1fr}}
+.palette{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.swatch{
+  aspect-ratio:1.5;border-radius:var(--radius);padding:20px;color:#fff;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  transition:transform .3s;cursor:pointer;position:relative;overflow:hidden;
+  border:1px solid var(--border);
+}
+.swatch:hover{transform:scale(1.03)}
+.swatch-hex{font-family:var(--mono);font-size:11px;letter-spacing:.1em;opacity:.75;margin-bottom:4px}
+.swatch-name{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:500}
+.typo-stack{background:var(--neutral-warm);padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius)}
+.typo-row{padding:18px 0;border-bottom:1px solid var(--border)}
+.typo-row:last-child{border:none}
+.typo-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mute);margin-bottom:10px;font-weight:600}
+.typo-sample-display{font-family:var(--serif);font-style:italic;font-size:42px;line-height:1;color:var(--primary);font-weight:500}
+.typo-sample-body{font-family:var(--sans);font-size:18px;color:var(--text-soft);line-height:1.5}
+.principles{grid-column:1/-1;margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:768px){.principles{grid-template-columns:1fr}}
+.principle{padding:24px 22px;background:var(--neutral-light);border:1px solid var(--border);border-radius:var(--radius)}
+.principle-name{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--primary);margin-bottom:8px;font-weight:500}
+.principle-desc{font-size:13px;color:var(--text-soft);line-height:1.5}
+
+/* ===========================================================
+   SLIDE 07 · MOCKUP / SITE EM IFRAME
+   =========================================================== */
+.laptop{
+  margin:40px auto 0;max-width:1100px;
+  border-radius:14px 14px 4px 4px;background:#1a1410;padding:14px 14px 0;
+  box-shadow:0 60px 120px -30px rgba(0,0,0,.45);position:relative;
+}
+.laptop::after{content:"";display:block;height:18px;background:#0a0606;border-radius:0 0 14px 14px;margin:0 -14px}
+.laptop-bar{display:flex;gap:6px;padding:8px 4px;align-items:center}
+.laptop-bar-dot{width:8px;height:8px;border-radius:50%;background:#3a2d28}
+.laptop-bar-url{flex:1;background:#0a0606;color:rgba(255,255,255,.5);padding:4px 14px;border-radius:6px;font-family:var(--mono);font-size:10px;text-align:center}
+.laptop-screen{aspect-ratio:16/10;background:var(--neutral-light);overflow:hidden;border-radius:2px;position:relative}
+.laptop-screen iframe{width:100%;height:100%;border:none;background:var(--neutral-light)}
+.laptop-actions{display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+
+/* ===========================================================
+   SLIDE 08 · PRODUTOS (com mocks visuais)
+   =========================================================== */
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:40px}
+@media (max-width:1024px){.products{grid-template-columns:1fr}}
+.product-card{
+  background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:all .3s;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.product-mock{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-body{padding:32px}
+.product-tag{
+  display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:#fff;background:var(--primary);padding:5px 10px;border-radius:4px;
+  margin-bottom:16px;font-weight:600;
+}
+.product-name{font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:10px;color:var(--text);line-height:1.15}
+.product-pitch{font-size:14px;color:var(--text-soft);line-height:1.55;margin-bottom:18px}
+.product-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);font-weight:600}
+.product-meta strong{color:var(--primary)}
+
+/* ===========================================================
+   MOCKS VISUAIS · 8 tipos disponíveis
+   Importados de library/mock-snippets.html
+   ===========================================================
+   Mock styles devem ser inline · cada produto especifica qual
+   mock usar (ex: class="product-mock mock-app")
+
+   Os 8 mocks estão no library/mock-snippets.html
+   Builder copia o CSS de cada mock pra cá durante a build
+   =========================================================== */
+
+{{MOCK_STYLES_INSERT_HERE}}
+
+/* ===========================================================
+   SLIDE 09 · PROJEÇÃO FINANCEIRA
+   =========================================================== */
+.proj{margin-top:40px}
+.proj-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.proj-table th{background:var(--primary-deep);color:#fff;padding:18px 24px;text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;font-family:var(--sans)}
+.proj-table th:nth-child(2),.proj-table th:nth-child(3),.proj-table td:nth-child(2),.proj-table td:nth-child(3){text-align:right}
+.proj-table td{padding:18px 24px;border-top:1px solid var(--border);font-size:15px}
+.proj-table tfoot td{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--primary);font-weight:500;background:rgba(201,169,97,.1)}
+.proj-bars{margin-top:40px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:end;height:240px}
+.proj-bar-wrap{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+.proj-bar{width:100%;background:linear-gradient(180deg,var(--accent),var(--primary));border-radius:4px 4px 0 0;transition:height 1.2s var(--ease);position:relative}
+.proj-bar.bonus{background:linear-gradient(180deg,var(--accent-soft),var(--accent));box-shadow:0 0 24px rgba(201,169,97,.4);outline:2px dashed var(--accent);outline-offset:3px}
+.proj-bar-val{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--primary);font-weight:600;white-space:nowrap}
+.proj-bar-label{margin-top:10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center;font-weight:600;line-height:1.3}
+.proj-disclaimer{margin-top:32px;font-size:12px;color:var(--text-mute);font-style:italic}
+.proj-bonus-card{
+  margin-top:48px;padding:28px 32px;
+  background:linear-gradient(135deg,rgba(201,169,97,.1),rgba(0,81,123,.05));
+  border:1px solid var(--accent);border-radius:var(--radius);
+}
+.proj-bonus-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;font-weight:700}
+.proj-bonus-title{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--primary);line-height:1.3;margin-bottom:8px}
+.proj-bonus-desc{font-size:14px;color:var(--text-soft);line-height:1.55}
+
+/* ===========================================================
+   SLIDE 10 · MODELOS DE PARCERIA (3 cards)
+   =========================================================== */
+.partnership{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+@media (max-width:1024px){.partnership{grid-template-columns:1fr}}
+.partner-card{
+  background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 28px;position:relative;display:flex;flex-direction:column;transition:all .3s;
+}
+.partner-card.recommended{
+  background:var(--primary-deep);color:#fff;border-color:var(--accent);
+  transform:scale(1.02);box-shadow:var(--shadow-lg);
+}
+.partner-card.recommended .partner-letter{color:var(--accent)}
+.partner-card.recommended .partner-title{color:#fff}
+.partner-card.recommended .partner-desc,.partner-card.recommended .partner-bullets li{color:rgba(255,255,255,.78)}
+.partner-card.recommended .partner-fit{border-top-color:rgba(255,255,255,.2);color:var(--accent-soft)}
+.partner-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:var(--primary-deep);
+  padding:6px 18px;border-radius:99px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+}
+.partner-letter{font-family:var(--serif);font-style:italic;font-size:72px;color:var(--accent-deep);font-weight:400;line-height:.85;margin-bottom:8px}
+.partner-name{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mute);font-weight:600;margin-bottom:18px}
+.partner-card.recommended .partner-name{color:rgba(255,255,255,.55)}
+.partner-title{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--text);margin-bottom:14px;line-height:1.15}
+.partner-desc{font-size:14px;color:var(--text-soft);line-height:1.55;margin-bottom:20px}
+.partner-bullets{margin-bottom:24px}
+.partner-bullets li{font-size:13px;color:var(--text-soft);padding:6px 0 6px 22px;position:relative}
+.partner-bullets li::before{content:"•";position:absolute;left:8px;color:var(--accent);font-weight:700;font-size:18px;line-height:1}
+.partner-fit{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);font-family:var(--serif);font-style:italic;font-size:15px;color:var(--primary)}
+
+/* ===========================================================
+   SLIDE 11 · ROADMAP
+   =========================================================== */
+.roadmap{margin-top:40px;position:relative}
+.roadmap-line{position:absolute;top:48px;left:5%;right:5%;height:2px;background:var(--border)}
+.roadmap-line-fill{position:absolute;top:48px;left:5%;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width 1.5s ease}
+.roadmap-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;position:relative;z-index:1}
+@media (max-width:1024px){.roadmap-grid{grid-template-columns:repeat(2,1fr);gap:30px}.roadmap-line,.roadmap-line-fill{display:none}}
+.road-step{text-align:center;display:flex;flex-direction:column;align-items:center}
+.road-dot{
+  width:48px;height:48px;border-radius:50%;background:var(--neutral-light);
+  border:2px solid var(--primary);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-style:italic;font-size:22px;font-weight:600;
+  margin-bottom:18px;position:relative;z-index:2;
+}
+.road-week{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:8px}
+.road-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.2}
+.road-desc{font-size:12px;color:var(--text-soft);line-height:1.45}
+
+/* ===========================================================
+   SLIDE 12 · CTA FINAL
+   =========================================================== */
+.final{
+  background:linear-gradient(135deg,var(--primary-deep),#020817);
+  color:#fff;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding:120px var(--pad);position:relative;overflow:hidden;
+}
+.final-orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.4;pointer-events:none}
+.final-orb.gold{background:var(--accent);width:600px;height:600px;top:-200px;left:50%;transform:translateX(-50%)}
+.final-content{position:relative;z-index:2;max-width:800px}
+.final-pre{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--accent-soft);margin-bottom:32px}
+.final-title{font-family:var(--serif);font-style:italic;font-size:clamp(48px,7vw,84px);line-height:1.05;color:#fff;margin-bottom:32px;font-weight:500}
+.final-title em{color:var(--accent-soft)}
+.final-lede{font-size:22px;color:rgba(255,255,255,.85);line-height:1.55;margin-bottom:48px}
+.final-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn{
+  padding:20px 40px;border-radius:999px;font-size:13px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;transition:all .3s;
+  border:1px solid;display:inline-block;font-family:inherit;
+}
+.btn-gold{background:var(--accent);color:var(--primary-deep);border-color:var(--accent)}
+.btn-gold:hover{background:var(--accent-soft);transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(201,169,97,.5)}
+.btn-outline{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-outline:hover{background:#fff;color:var(--primary-deep);border-color:#fff}
+.final-sig{
+  border-top:1px solid rgba(255,255,255,.18);padding-top:32px;margin-top:32px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);text-transform:uppercase;
+}
+
+/* ----- Reveal animations ----- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}.stagger-4{transition-delay:.4s}
+
+[data-counter]{display:inline-block}
+
+/* ----- Print ----- */
+@media print{
+  .topbar,.sidedex{display:none}
+  .slide{break-after:page;min-height:auto}
+  body{background:white;color:black}
+}
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+     TOP BAR
+     ==================================================================== -->
+<header class="topbar">
+  <div class="topbar-brand">{{TOPBAR_BRAND}}</div>
+  <div class="topbar-progress"><div class="topbar-progress-bar" id="progress"></div></div>
+  <div class="topbar-actions">
+    <button class="topbar-btn" onclick="window.print()">Salvar PDF</button>
+    <button class="topbar-btn primary" onclick="enterPresentation()">▶ Apresentar</button>
+  </div>
+</header>
+
+<!-- ====================================================================
+     SIDE INDEX
+     ==================================================================== -->
+<nav class="sidedex" id="sidedex">
+  <a href="#s1" class="sidedex-dot" data-label="{{LBL_CAPA}}"></a>
+  <a href="#s2" class="sidedex-dot" data-label="{{LBL_ESPELHO}}"></a>
+  <a href="#s3" class="sidedex-dot" data-label="{{LBL_QUEM}}"></a>
+  <a href="#s4" class="sidedex-dot" data-label="{{LBL_PRESERVAR}}"></a>
+  <a href="#s5" class="sidedex-dot" data-label="{{LBL_OPORTUNIDADES}}"></a>
+  <a href="#s6" class="sidedex-dot" data-label="{{LBL_DIRECAO}}"></a>
+  <a href="#s7" class="sidedex-dot" data-label="{{LBL_MOCKUP}}"></a>
+  <a href="#s8" class="sidedex-dot" data-label="{{LBL_PRODUTOS}}"></a>
+  <a href="#s9" class="sidedex-dot" data-label="{{LBL_PROJECAO}}"></a>
+  <a href="#s10" class="sidedex-dot" data-label="{{LBL_PARCERIA}}"></a>
+  <a href="#s11" class="sidedex-dot" data-label="{{LBL_ROADMAP}}"></a>
+  <a href="#s12" class="sidedex-dot" data-label="{{LBL_PROXIMO}}"></a>
+</nav>
+
+<!-- ====================================================================
+     SLIDE 01 · COVER
+     ==================================================================== -->
+<section class="slide cover" id="s1">
+  <div class="cover-grid"></div>
+  <div class="cover-orb gold"></div>
+  <div class="cover-orb blue"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow reveal">{{COVER_EYEBROW}}</div>
+    <h1 class="cover-name reveal">{{COVER_NOME_LINHA1}}<br/><em>{{COVER_NOME_LINHA2}}</em></h1>
+    <div class="cover-meta reveal">
+      <div><strong>{{COVER_META1_TITULO}}</strong>{{COVER_META1_DESC}}</div>
+      <div><strong>{{COVER_META2_TITULO}}</strong>{{COVER_META2_DESC}}</div>
+      <div><strong>{{COVER_META3_TITULO}}</strong>{{COVER_META3_DESC}}</div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <span>{{COVER_BOTTOM_LEFT}}</span>
+    <span>{{COVER_BOTTOM_RIGHT}}</span>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 02 · ESPELHO
+     ==================================================================== -->
+<section class="slide" id="s2">
+  <div class="container">
+    <div class="slide-num reveal">02 · {{NUM_ESPELHO}}</div>
+    <div class="eyebrow reveal">{{ESPELHO_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{ESPELHO_TITULO}}</h2>
+    <p class="slide-lede reveal">{{ESPELHO_LEDE}}</p>
+    <div class="mirror-grid">
+      <div class="mirror-cell reveal"><div class="mirror-num"><span data-counter="{{STAT1_NUM}}">0</span><em>{{STAT1_SUFIXO}}</em></div><div class="mirror-label">{{STAT1_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-1"><div class="mirror-num"><span data-counter="{{STAT2_NUM}}">0</span><em>{{STAT2_SUFIXO}}</em></div><div class="mirror-label">{{STAT2_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-2"><div class="mirror-num"><span data-counter="{{STAT3_NUM}}">0</span><em>{{STAT3_SUFIXO}}</em></div><div class="mirror-label">{{STAT3_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-3"><div class="mirror-num"><span data-counter="{{STAT4_NUM}}">0</span><em>{{STAT4_SUFIXO}}</em></div><div class="mirror-label">{{STAT4_LABEL}}</div></div>
+      <div class="mirror-cell reveal"><div class="mirror-num"><span data-counter="{{STAT5_NUM}}">0</span><em>{{STAT5_SUFIXO}}</em></div><div class="mirror-label">{{STAT5_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-1"><div class="mirror-num"><span data-counter="{{STAT6_NUM}}">0</span><em>{{STAT6_SUFIXO}}</em></div><div class="mirror-label">{{STAT6_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-2"><div class="mirror-num"><span data-counter="{{STAT7_NUM}}">0</span><em>{{STAT7_SUFIXO}}</em></div><div class="mirror-label">{{STAT7_LABEL}}</div></div>
+      <div class="mirror-cell reveal stagger-3"><div class="mirror-num"><span data-counter="{{STAT8_NUM}}">0</span><em>{{STAT8_SUFIXO}}</em></div><div class="mirror-label">{{STAT8_LABEL}}</div></div>
+    </div>
+    <div class="mirror-tape reveal">
+      <strong>{{ESPELHO_TAPE_TEXTO}}</strong>
+    </div>
+    <div class="credentials-marquee reveal">
+      {{CREDENCIAIS_LIST}}
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 03 · BIO EDITORIAL
+     ==================================================================== -->
+<section class="slide" id="s3">
+  <div class="container">
+    <div class="slide-num reveal">03 · {{NUM_QUEM}}</div>
+    <div class="eyebrow reveal">{{QUEM_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{QUEM_TITULO}}</h2>
+    <div class="bio-grid">
+      <div class="bio-text reveal">
+        <div class="bio-quote">{{QUEM_QUOTE}}</div>
+        <p>{{QUEM_PARAGRAFO1}}</p>
+        <p>{{QUEM_PARAGRAFO2}}</p>
+        <p>{{QUEM_PARAGRAFO3}}</p>
+      </div>
+      <div class="bio-portrait reveal stagger-1">
+        <img src="{{QUEM_FOTO_URL}}" alt="{{NOME_CLIENTE}}"/>
+      </div>
+    </div>
+    <div class="creds-strip">
+      {{CREDENCIAIS_CARDS}}
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 04 · PRESERVAR
+     ==================================================================== -->
+<section class="slide" id="s4">
+  <div class="container">
+    <div class="slide-num reveal">04 · {{NUM_PRESERVAR}}</div>
+    <div class="eyebrow reveal">{{PRESERVAR_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{PRESERVAR_TITULO}}</h2>
+    <p class="slide-lede reveal">{{PRESERVAR_LEDE}}</p>
+    <div class="preserve-grid">
+      {{PRESERVAR_CARDS}}
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 05 · OPORTUNIDADES
+     ==================================================================== -->
+<section class="slide" id="s5">
+  <div class="container">
+    <div class="slide-num reveal">05 · {{NUM_OPORTUNIDADES}}</div>
+    <div class="eyebrow reveal">{{OPP_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{OPP_TITULO}}</h2>
+    <p class="slide-lede reveal">{{OPP_LEDE}}</p>
+    <table class="opp-table reveal">
+      <thead>
+        <tr><th style="width:40px">#</th><th>{{OPP_TH_2}}</th><th>{{OPP_TH_3}}</th><th>{{OPP_TH_4}}</th></tr>
+      </thead>
+      <tbody>
+        {{OPP_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 06 · DIREÇÃO CRIATIVA
+     ==================================================================== -->
+<section class="slide" id="s6">
+  <div class="container">
+    <div class="slide-num reveal">06 · {{NUM_DIRECAO}}</div>
+    <div class="eyebrow reveal">{{DIR_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{DIR_TITULO}}</h2>
+    <p class="slide-lede reveal">{{DIR_LEDE}}</p>
+    <div class="moodboard">
+      <div>
+        <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--primary);margin-bottom:18px;font-weight:600;text-transform:uppercase">{{DIR_PALETA_TITULO}}</h3>
+        <div class="palette">
+          <div class="swatch reveal" style="background:{{COR_PRIMARY}}"><div class="swatch-hex">{{COR_PRIMARY}}</div><div class="swatch-name">{{NOME_PRIMARY}}</div></div>
+          <div class="swatch reveal stagger-1" style="background:{{COR_PRIMARY_DEEP}}"><div class="swatch-hex">{{COR_PRIMARY_DEEP}}</div><div class="swatch-name">{{NOME_PRIMARY_DEEP}}</div></div>
+          <div class="swatch reveal stagger-2" style="background:{{COR_ACCENT}};color:{{COR_PRIMARY_DEEP}}"><div class="swatch-hex">{{COR_ACCENT}}</div><div class="swatch-name">{{NOME_ACCENT}}</div></div>
+          <div class="swatch reveal stagger-3" style="background:{{COR_NEUTRAL_LIGHT}};color:{{COR_PRIMARY_DEEP}};border:1px solid var(--border)"><div class="swatch-hex">{{COR_NEUTRAL_LIGHT}}</div><div class="swatch-name">{{NOME_NEUTRAL}}</div></div>
+        </div>
+      </div>
+      <div class="reveal stagger-1">
+        <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--primary);margin-bottom:18px;font-weight:600;text-transform:uppercase">{{DIR_TIPO_TITULO}}</h3>
+        <div class="typo-stack">
+          <div class="typo-row">
+            <div class="typo-label">{{DIR_DISPLAY_LABEL}}</div>
+            <div class="typo-sample-display">{{FONT_SERIF_NAME}}</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-label">{{DIR_BODY_LABEL}}</div>
+            <div class="typo-sample-body">{{DIR_BODY_SAMPLE}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="principles">
+        <div class="principle reveal"><div class="principle-name">{{PRINC1_NAME}}</div><div class="principle-desc">{{PRINC1_DESC}}</div></div>
+        <div class="principle reveal stagger-1"><div class="principle-name">{{PRINC2_NAME}}</div><div class="principle-desc">{{PRINC2_DESC}}</div></div>
+        <div class="principle reveal stagger-2"><div class="principle-name">{{PRINC3_NAME}}</div><div class="principle-desc">{{PRINC3_DESC}}</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 07 · MOCKUP / SITE EM IFRAME
+     ==================================================================== -->
+<section class="slide" id="s7">
+  <div class="container">
+    <div class="slide-num reveal">07 · {{NUM_MOCKUP}}</div>
+    <div class="eyebrow reveal">{{MOCK_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{MOCK_TITULO}}</h2>
+    <p class="slide-lede reveal">{{MOCK_LEDE}}</p>
+    <div class="laptop reveal">
+      <div class="laptop-bar">
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-url">{{MOCK_URL_DISPLAY}}</span>
+      </div>
+      <div class="laptop-screen">
+        <iframe src="{{MOCK_IFRAME_SRC}}" loading="lazy" title="{{MOCK_IFRAME_TITLE}}"></iframe>
+      </div>
+    </div>
+    <div class="laptop-actions">
+      <a class="topbar-btn primary" href="{{MOCK_OPEN_URL}}" target="_blank">{{MOCK_BTN_OPEN}}</a>
+      {{MOCK_EXTRA_BUTTONS}}
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--text-mute);font-style:italic;font-family:var(--serif)">{{MOCK_CAPTION}}</p>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 08 · PRODUTOS
+     ==================================================================== -->
+<section class="slide" id="s8">
+  <div class="container">
+    <div class="slide-num reveal">08 · {{NUM_PRODUTOS}}</div>
+    <div class="eyebrow reveal">{{PROD_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{PROD_TITULO}}</h2>
+    <p class="slide-lede reveal">{{PROD_LEDE}}</p>
+    <div class="products">
+      {{PRODUTOS_CARDS}}
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 09 · PROJEÇÃO
+     ==================================================================== -->
+<section class="slide" id="s9">
+  <div class="container">
+    <div class="slide-num reveal">09 · {{NUM_PROJECAO}}</div>
+    <div class="eyebrow reveal">{{PROJ_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{PROJ_TITULO}}</h2>
+    <p class="slide-lede reveal">{{PROJ_LEDE}}</p>
+    <div class="proj">
+      <table class="proj-table reveal">
+        <thead><tr><th>{{PROJ_TH_1}}</th><th>{{PROJ_TH_2}}</th><th>{{PROJ_TH_3}}</th></tr></thead>
+        <tbody>
+          {{PROJ_ROWS}}
+        </tbody>
+        <tfoot>
+          <tr><td>{{PROJ_FOOTER_LABEL}}</td><td>{{PROJ_FOOTER_TOTAL}}</td><td>{{PROJ_FOOTER_SHARE}}</td></tr>
+        </tfoot>
+      </table>
+      <div class="proj-bars reveal">
+        {{PROJ_BARS}}
+      </div>
+      {{PROJ_BONUS_CARD}}
+      <p class="proj-disclaimer reveal">{{PROJ_DISCLAIMER}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 10 · MODELOS DE PARCERIA
+     ==================================================================== -->
+<section class="slide" id="s10">
+  <div class="container">
+    <div class="slide-num reveal">10 · {{NUM_PARCERIA}}</div>
+    <div class="eyebrow reveal">{{PART_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{PART_TITULO}}</h2>
+    <p class="slide-lede reveal">{{PART_LEDE}}</p>
+    <div class="partnership">
+      {{PARCERIA_CARDS}}
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 11 · ROADMAP
+     ==================================================================== -->
+<section class="slide" id="s11">
+  <div class="container">
+    <div class="slide-num reveal">11 · {{NUM_ROADMAP}}</div>
+    <div class="eyebrow reveal">{{ROAD_EYEBROW}}</div>
+    <h2 class="slide-title reveal">{{ROAD_TITULO}}</h2>
+    <p class="slide-lede reveal">{{ROAD_LEDE}}</p>
+    <div class="roadmap">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-line-fill" id="road-fill"></div>
+      <div class="roadmap-grid">
+        {{ROADMAP_STEPS}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SLIDE 12 · CTA FINAL
+     ==================================================================== -->
+<section class="slide final" id="s12">
+  <div class="final-orb gold"></div>
+  <div class="final-content">
+    <div class="final-pre reveal">{{FINAL_PRE}}</div>
+    <h2 class="final-title reveal">{{FINAL_TITULO}}</h2>
+    <p class="final-lede reveal">{{FINAL_LEDE}}</p>
+    <div class="final-cta reveal">
+      <a class="btn btn-gold" href="{{CTA_PRIMARY_LINK}}">{{CTA_PRIMARY_LABEL}}</a>
+      <a class="btn btn-outline" href="#s1">{{CTA_SECONDARY_LABEL}}</a>
+    </div>
+    <div class="final-sig reveal">
+      <span>{{SIG_LEFT}}</span>
+      <span>{{SIG_RIGHT}}</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ====================================================================
+   JS · animações + interações
+   ==================================================================== */
+
+// Reveal on scroll
+const obs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Counter
+const counters = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.counter,10);
+    const dur = 1300; const start = performance.now();
+    const tick = (now)=>{
+      const t = Math.min((now-start)/dur,1);
+      const ease = 1-Math.pow(1-t,3);
+      el.textContent = Math.round(target*ease);
+      if(t<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counters.unobserve(el);
+  });
+},{threshold:.4});
+document.querySelectorAll('[data-counter]').forEach(el=>counters.observe(el));
+
+// Bars animadas
+const barObs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.height = e.target.dataset.h + '%';
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.proj-bar').forEach(b=>barObs.observe(b));
+
+// Roadmap line
+const roadObs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const fill = document.getElementById('road-fill');
+      if(fill) fill.style.width = '90%';
+      roadObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+const r = document.querySelector('.roadmap');
+if(r) roadObs.observe(r);
+
+// Progress + side dex
+const sections = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.sidedex-dot');
+const progress = document.getElementById('progress');
+function onScroll(){
+  const sc = window.scrollY;
+  const max = document.body.scrollHeight - window.innerHeight;
+  progress.style.width = ((sc/max)*100) + '%';
+  let active = 0;
+  sections.forEach((s,i)=>{ if(s.offsetTop - 200 <= sc) active = i; });
+  dots.forEach((d,i)=>d.classList.toggle('active',i===active));
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// Apresentação fullscreen
+function enterPresentation(){
+  document.documentElement.requestFullscreen?.();
+}
+
+// Atalhos de teclado
+let currentSlide = 0;
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){
+    e.preventDefault();
+    currentSlide = Math.min(currentSlide+1, sections.length-1);
+    sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();
+    currentSlide = Math.max(currentSlide-1, 0);
+    sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='Escape'){
+    if(document.fullscreenElement) document.exitFullscreen();
+  } else if(e.key==='Home'){
+    currentSlide=0; sections[0].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='End'){
+    currentSlide=sections.length-1; sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  }
+});
+let scrollTimer;
+window.addEventListener('scroll', ()=>{
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(()=>{
+    const sc = window.scrollY;
+    sections.forEach((s,i)=>{ if(s.offsetTop - 200 <= sc) currentSlide = i; });
+  }, 100);
+});
+</script>
+</body>
+</html>

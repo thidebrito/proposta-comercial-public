@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "skill": "proposta-comercial",
+    "skill_version": "2.0",
+    "format_version": 1,
+    "doc": "Estado de execução do pitch — atualizado a cada fase. NUNCA editar manualmente nas seções privadas (.snapshots, .approvals)."
+  },
+
+  "client": {
+    "name": "{{NOME_CLIENTE}}",
+    "slug": "{{SLUG_CLIENTE}}",
+    "url": "{{URL_CLIENTE}}",
+    "niche": "{{NICHO}}",
+    "language": "pt-BR"
+  },
+
+  "project": {
+    "created_at": "{{TIMESTAMP_CREATED}}",
+    "updated_at": "{{TIMESTAMP_UPDATED}}",
+    "path": "{{PATH_PROJETO}}",
+    "version": "v1",
+    "mode": "full",
+    "_doc_mode": "full | express | handson | autopilot"
+  },
+
+  "current_phase": "briefing",
+  "_doc_phase": "briefing | research | strategy | design | copy | build | done | failed",
+
+  "phases_completed": [],
+
+  "snapshots": {
+    "briefing": null,
+    "research": null,
+    "strategy": null,
+    "design": null,
+    "copy": null,
+    "build": null
+  },
+
+  "approvals": {
+    "QG1_briefing": {"approved": false, "by": null, "at": null, "auto": true, "notes": ""},
+    "QG2_research": {"approved": false, "by": null, "at": null, "auto": true, "notes": ""},
+    "QG3_strategy": {"approved": false, "by": null, "at": null, "auto": false, "notes": ""},
+    "QG4_design": {"approved": false, "by": null, "at": null, "auto": false, "notes": ""},
+    "QG5_final": {"approved": false, "by": null, "at": null, "auto": true, "notes": ""}
+  },
+
+  "ethics_blockers": [],
+  "_doc_ethics_blockers": "Lista de violações éticas detectadas. Se não-vazia, pitch NÃO é entregue.",
+
+  "variants": [
+    {
+      "id": "v1",
+      "label": "principal",
+      "design_palette": null,
+      "copy_tone": null,
+      "created_at": null,
+      "active": true
+    }
+  ],
+
+  "history": [],
+  "_doc_history": "Log de eventos importantes — útil pra auditoria e debugging."
+}

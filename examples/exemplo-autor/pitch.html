@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thiago Brito · Plano de Crescimento Digital 2026</title>
+<meta name="description" content="Auto-pitch · análise estratégica do ecossistema @thidebrito · transição B2C → B2B · exemplo da skill proposta-comercial." />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#D2691E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style-tokens.css" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--neutral-light);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--primary);color:#fff}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-0.01em;line-height:1.05;color:var(--text)}
+em{font-style:italic;color:var(--primary)}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:var(--z-modal);background:rgba(250,247,242,.94);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:500}
+.topbar-brand{display:flex;align-items:center;gap:10px;color:var(--primary);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.topbar-brand::before{content:"●";color:var(--accent)}
+.topbar-progress{flex:1;height:2px;background:var(--border);margin:0 32px;border-radius:1px;overflow:hidden;max-width:400px}
+.topbar-progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width .3s ease}
+.topbar-actions{display:flex;gap:8px;align-items:center}
+.topbar-btn{padding:8px 14px;background:transparent;border:1px solid var(--border);border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);font-weight:500;transition:all .2s;display:flex;align-items:center;gap:6px;font-family:inherit}
+.topbar-btn:hover{background:var(--text);color:#fff;border-color:var(--text)}
+.topbar-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.topbar-btn.primary:hover{background:var(--primary-deep)}
+@media (max-width:768px){.topbar-progress{display:none}.topbar{padding:10px 16px}}
+
+/* SIDEDEX */
+.sidedex{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:var(--z-nav);display:flex;flex-direction:column;gap:10px}
+.sidedex-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .3s;cursor:pointer;position:relative}
+.sidedex-dot.active{background:var(--primary);transform:scale(1.4)}
+.sidedex-dot::after{content:attr(data-label);position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-weight:600}
+.sidedex-dot:hover::after,.sidedex-dot.active::after{opacity:1}
+@media (max-width:1024px){.sidedex{display:none}}
+
+/* SLIDES */
+.slide{min-height:100vh;padding:120px var(--pad) 80px;position:relative;z-index:var(--z-content);display:flex;flex-direction:column;justify-content:center}
+@media (max-width:768px){.slide{padding:90px var(--pad) 60px}}
+.container{max-width:var(--container);margin:0 auto;width:100%}
+.slide-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--text-mute);margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.slide-num::after{content:"";flex:1;height:1px;background:var(--border);max-width:120px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:18px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--accent)}
+.slide-title{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,82px);line-height:1.05;letter-spacing:-.01em;margin-bottom:28px;color:var(--text);font-style:italic}
+.slide-title em{color:var(--primary);font-style:italic;font-weight:400}
+.slide-lede{font-size:20px;line-height:1.55;color:var(--text-soft);max-width:760px;margin-bottom:48px}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,var(--primary-deep) 0%,var(--primary) 60%,#3a1700 100%);color:#fff;min-height:100vh;padding:140px var(--pad) 80px;overflow:hidden;position:relative}
+.cover-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;pointer-events:none}
+.cover-orb.gold{background:var(--accent);width:600px;height:600px;top:-200px;right:-100px}
+.cover-orb.warm{background:var(--primary-light);width:400px;height:400px;bottom:-100px;left:10%;opacity:.3}
+.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at center,black,transparent);pointer-events:none}
+.cover-content{position:relative;z-index:2;max-width:1100px;margin:auto 0}
+.cover-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--accent-soft);margin-bottom:48px}
+.cover-name{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(56px,11vw,140px);line-height:.95;letter-spacing:-.02em;color:#fff;margin-bottom:40px}
+.cover-name em{color:var(--accent-soft)}
+.cover-meta{display:flex;gap:60px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:40px;margin-top:60px;max-width:900px}
+.cover-meta div{font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.06em;line-height:1.5}
+.cover-meta strong{display:block;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--accent-soft);font-weight:400;margin-bottom:6px}
+.cover-bottom{position:absolute;bottom:40px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase}
+@media (max-width:768px){.cover-bottom{flex-direction:column;gap:8px;align-items:flex-start}}
+
+/* MIRROR */
+.mirror-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:40px}
+@media (max-width:1024px){.mirror-grid{grid-template-columns:repeat(2,1fr)}}
+.mirror-cell{background:var(--neutral-light);padding:40px 32px;transition:background .3s}
+.mirror-cell:hover{background:var(--neutral-warm)}
+.mirror-num{font-family:var(--serif);font-style:italic;font-size:72px;line-height:.95;color:var(--primary);font-weight:400;margin-bottom:14px;letter-spacing:-.02em}
+.mirror-num em{color:var(--accent-deep);font-size:48px;vertical-align:super}
+.mirror-label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-soft);font-weight:600;line-height:1.4}
+.mirror-tape{margin-top:60px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:24px 32px;background:var(--neutral-warm);border-radius:var(--radius);border:1px solid var(--border)}
+.mirror-tape strong{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--primary);font-weight:400}
+.credentials-marquee{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--text-soft);font-weight:500}
+.credentials-marquee span{padding:6px 14px;background:var(--neutral-warm);border-radius:99px;border:1px solid var(--border)}
+
+/* BIO */
+.bio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;margin-top:40px}
+@media (max-width:1024px){.bio-grid{grid-template-columns:1fr;gap:48px}}
+.bio-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:36px;line-height:1.25;color:var(--primary);border-left:2px solid var(--accent);padding-left:28px;margin-bottom:36px}
+.bio-text p{margin-bottom:18px;font-size:17px;color:var(--text-soft);line-height:1.65}
+.bio-text strong{color:var(--text)}
+.bio-portrait{aspect-ratio:3/4;background:linear-gradient(135deg,var(--primary-deep),var(--primary));border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:var(--shadow-lg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.bio-portrait-letter{font-family:var(--serif);font-style:italic;font-size:160px;color:var(--accent-soft);text-shadow:0 6px 30px rgba(0,0,0,.3)}
+.bio-portrait::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.3);pointer-events:none}
+.creds-strip{margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:1024px){.creds-strip{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.creds-strip{grid-template-columns:repeat(2,1fr)}}
+.cred-card{background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center}
+.cred-year{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.2em;font-weight:600;margin-bottom:8px}
+.cred-inst{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--text);line-height:1.2}
+
+/* PRESERVE */
+.preserve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+@media (max-width:1024px){.preserve-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.preserve-grid{grid-template-columns:1fr}}
+.preserve-card{background:var(--neutral-warm);padding:36px 28px;border:1px solid var(--border);border-radius:var(--radius);transition:all .3s;position:relative}
+.preserve-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.preserve-num{position:absolute;top:24px;right:24px;font-family:var(--serif);font-style:italic;font-size:42px;color:var(--accent);font-weight:400;line-height:1;opacity:.5}
+.preserve-icon{width:48px;height:48px;background:var(--primary);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:22px;margin-bottom:24px;font-weight:400}
+.preserve-title{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:400;margin-bottom:10px;color:var(--text);line-height:1.15}
+.preserve-text{font-size:14px;color:var(--text-soft);line-height:1.55}
+
+/* OPP */
+.opp-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:40px;border:1px solid var(--border);background:var(--neutral-warm);border-radius:var(--radius);overflow:hidden}
+.opp-table thead{background:var(--primary);color:#fff}
+.opp-table th{text-align:left;padding:18px 24px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;font-family:var(--sans)}
+.opp-table td{padding:24px;border-top:1px solid var(--border);vertical-align:top;font-size:15px;color:var(--text)}
+.opp-table tr:hover td{background:rgba(244,192,78,.08)}
+.opp-icon{width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--primary-deep);display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:16px;font-weight:600}
+.opp-impact{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--primary);font-weight:400;line-height:1.3}
+@media (max-width:768px){.opp-table thead{display:none}.opp-table tr{display:block;padding:20px;border-top:1px solid var(--border)}.opp-table td{display:block;padding:6px 0;border:none;font-size:14px}}
+
+/* DIRECTION */
+.moodboard{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media (max-width:1024px){.moodboard{grid-template-columns:1fr}}
+.palette{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.swatch{aspect-ratio:1.5;border-radius:var(--radius);padding:20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s;cursor:pointer;position:relative;overflow:hidden;border:1px solid var(--border)}
+.swatch:hover{transform:scale(1.03)}
+.swatch-hex{font-family:var(--mono);font-size:11px;letter-spacing:.1em;opacity:.75;margin-bottom:4px}
+.swatch-name{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:400}
+.typo-stack{background:var(--neutral-warm);padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius)}
+.typo-row{padding:18px 0;border-bottom:1px solid var(--border)}
+.typo-row:last-child{border:none}
+.typo-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mute);margin-bottom:10px;font-weight:600}
+.typo-sample-display{font-family:var(--serif);font-style:italic;font-size:42px;line-height:1;color:var(--primary);font-weight:400}
+.typo-sample-body{font-family:var(--sans);font-size:18px;color:var(--text-soft);line-height:1.5}
+.principles{grid-column:1/-1;margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:768px){.principles{grid-template-columns:1fr}}
+.principle{padding:24px 22px;background:var(--neutral-light);border:1px solid var(--border);border-radius:var(--radius)}
+.principle-name{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--primary);margin-bottom:8px;font-weight:400}
+.principle-desc{font-size:13px;color:var(--text-soft);line-height:1.5}
+
+/* MOCKUP / SITE */
+.laptop{margin:40px auto 0;max-width:1100px;border-radius:14px 14px 4px 4px;background:#1a1410;padding:14px 14px 0;box-shadow:0 60px 120px -30px rgba(0,0,0,.45);position:relative}
+.laptop::after{content:"";display:block;height:18px;background:#0a0606;border-radius:0 0 14px 14px;margin:0 -14px}
+.laptop-bar{display:flex;gap:6px;padding:8px 4px;align-items:center}
+.laptop-bar-dot{width:8px;height:8px;border-radius:50%;background:#3a2d28}
+.laptop-bar-url{flex:1;background:#0a0606;color:rgba(255,255,255,.5);padding:4px 14px;border-radius:6px;font-family:var(--mono);font-size:10px;text-align:center}
+.laptop-screen{aspect-ratio:16/10;background:var(--neutral-light);overflow:hidden;border-radius:2px;position:relative;display:flex;align-items:center;justify-content:center}
+.laptop-screen-mock{text-align:center;padding:40px}
+.laptop-screen-mock h3{font-family:var(--serif);font-style:italic;font-size:48px;color:var(--primary);margin-bottom:16px}
+.laptop-screen-mock p{font-size:14px;color:var(--text-soft);max-width:480px;margin:0 auto}
+.laptop-actions{display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+
+/* PRODUTOS */
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:40px}
+@media (max-width:1024px){.products{grid-template-columns:1fr}}
+.product-card{background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:all .3s}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.product-mock{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-body{padding:32px}
+.product-tag{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--primary);padding:5px 10px;border-radius:4px;margin-bottom:16px;font-weight:600}
+.product-name{font-family:var(--serif);font-style:italic;font-size:28px;font-weight:400;margin-bottom:10px;color:var(--text);line-height:1.15}
+.product-pitch{font-size:14px;color:var(--text-soft);line-height:1.55;margin-bottom:18px}
+.product-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);font-weight:600}
+.product-meta strong{color:var(--primary)}
+
+/* MOCKS · 6 produtos do Thiago */
+.mock-mentoria{background:linear-gradient(135deg,var(--primary-deep),var(--primary));position:relative;overflow:hidden}
+.mock-mentoria::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px}
+.mock-mentoria-badge{position:relative;z-index:1;background:#fff;color:var(--primary-deep);padding:18px 28px;border-radius:var(--radius);text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4);border:1px solid var(--accent)}
+.mock-mentoria-badge .l1{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--accent-deep);font-weight:700;margin-bottom:6px}
+.mock-mentoria-badge .l2{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1;margin-bottom:6px;color:var(--primary)}
+.mock-mentoria-badge .l3{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--text-soft)}
+
+.mock-saas{background:linear-gradient(135deg,var(--neutral-warm),var(--neutral-light))}
+.mock-dashboard{width:75%;aspect-ratio:16/10;background:#fff;border-radius:8px;padding:14px;font-size:8px;box-shadow:0 14px 40px rgba(210,105,30,.18);display:grid;grid-template-columns:60px 1fr;gap:8px;border:1px solid var(--border)}
+.mock-dashboard-side{background:var(--primary-deep);border-radius:6px;padding:10px 6px;color:#fff}
+.mock-dashboard-side div{margin-bottom:8px;font-size:7px;letter-spacing:.06em}
+.mock-dashboard-main{display:grid;grid-template-rows:auto auto 1fr;gap:8px}
+.mock-dashboard-h{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--primary)}
+.mock-dashboard-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mock-dashboard-stat{background:var(--neutral-warm);border-radius:4px;padding:6px 8px;border:1px solid var(--border)}
+.mock-dashboard-stat strong{display:block;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--primary);margin-bottom:2px}
+.mock-dashboard-chart{background:var(--neutral-warm);border-radius:4px;padding:8px;border:1px solid var(--border)}
+.mock-dashboard-bars{display:flex;align-items:flex-end;gap:3px;height:100%}
+.mock-dashboard-bar{flex:1;background:var(--primary);border-radius:1px}
+
+.mock-news{background:var(--neutral-warm);border-bottom:1px solid var(--border)}
+.mock-letter{width:60%;aspect-ratio:3/4;background:#fff;padding:22px 20px;font-size:8px;line-height:1.4;color:var(--text-soft);box-shadow:0 14px 40px rgba(210,105,30,.18);border-left:3px solid var(--primary);position:relative;border-radius:2px}
+.mock-letter::before{content:"Bastidores · Stack do Criador";font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--primary);display:block;margin-bottom:10px;text-transform:uppercase;font-weight:600}
+.mock-letter-h{font-family:var(--serif);font-size:14px;line-height:1.1;color:var(--text);margin-bottom:8px;font-style:italic}
+.mock-letter-p{margin-bottom:6px}
+.mock-letter-sig{font-family:var(--serif);font-style:italic;color:var(--primary);margin-top:10px;font-size:9px}
+
+.mock-youtube{background:linear-gradient(135deg,#0F0F0F,#1F1F1F);align-items:center;padding:24px}
+.mock-yt-window{width:80%;background:#181818;border-radius:8px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.mock-yt-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--primary-deep),var(--primary));position:relative;display:flex;align-items:center;justify-content:center}
+.mock-yt-play{width:50px;height:50px;border-radius:50%;background:rgba(255,0,0,.9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;padding-left:4px;box-shadow:0 6px 20px rgba(255,0,0,.4)}
+.mock-yt-title{position:absolute;bottom:10px;left:10px;right:60px;font-family:var(--serif);font-style:italic;font-size:13px;color:#fff;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.mock-yt-time{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.85);color:#fff;font-family:var(--mono);font-size:9px;padding:2px 5px;border-radius:2px}
+.mock-yt-meta{padding:10px 12px;background:#181818}
+.mock-yt-channel{font-size:10px;color:#fff;font-weight:500;margin-bottom:3px}
+.mock-yt-stats{font-size:8px;color:#aaa}
+
+.mock-imersao{background:linear-gradient(135deg,#3a1700,var(--primary-deep));position:relative;overflow:hidden}
+.mock-imersao-poster{position:relative;z-index:1;background:#fff;padding:30px 24px;text-align:center;border:1px solid var(--accent);max-width:240px}
+.mock-imersao-poster .pre{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--accent-deep);margin-bottom:14px;font-weight:700}
+.mock-imersao-poster .name{font-family:var(--serif);font-style:italic;font-size:30px;line-height:1;color:var(--primary);margin-bottom:10px}
+.mock-imersao-poster .meta{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute);font-weight:600}
+
+.mock-ebook{background:linear-gradient(135deg,var(--neutral-warm),var(--neutral-light))}
+.mock-book{width:170px;aspect-ratio:2/3;background:#fff;border-radius:2px 6px 6px 2px;padding:24px 18px;display:flex;flex-direction:column;color:var(--text);position:relative;box-shadow:-8px 14px 30px rgba(210,105,30,.18),inset 4px 0 0 rgba(0,0,0,.05);border:1px solid var(--border)}
+.mock-book::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--border)}
+.mock-book-eye{font-family:var(--mono);font-size:8px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:14px;color:var(--accent-deep);font-weight:600}
+.mock-book-title{font-family:var(--serif);font-size:22px;line-height:1.05;color:var(--primary);margin-bottom:auto;font-weight:400;font-style:italic}
+.mock-book-author{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin-top:14px}
+.mock-book-deco{position:absolute;bottom:24px;right:18px;font-family:var(--serif);font-size:30px;color:var(--accent);opacity:.6;font-style:italic}
+
+/* PROJEÇÃO */
+.proj{margin-top:40px}
+.proj-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.proj-table th{background:var(--primary-deep);color:#fff;padding:18px 24px;text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;font-family:var(--sans)}
+.proj-table th:nth-child(2),.proj-table th:nth-child(3),.proj-table td:nth-child(2),.proj-table td:nth-child(3){text-align:right}
+.proj-table td{padding:18px 24px;border-top:1px solid var(--border);font-size:15px}
+.proj-table tfoot td{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--primary);font-weight:400;background:rgba(244,192,78,.15)}
+.proj-bars{margin-top:40px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:end;height:240px}
+.proj-bar-wrap{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+.proj-bar{width:100%;background:linear-gradient(180deg,var(--accent),var(--primary));border-radius:4px 4px 0 0;transition:height 1.2s var(--ease);position:relative}
+.proj-bar-val{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--primary);font-weight:600;white-space:nowrap}
+.proj-bar-label{margin-top:10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center;font-weight:600;line-height:1.3}
+.proj-disclaimer{margin-top:32px;font-size:12px;color:var(--text-mute);font-style:italic}
+
+/* PARCERIA */
+.partnership{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+@media (max-width:1024px){.partnership{grid-template-columns:1fr}}
+.partner-card{background:var(--neutral-warm);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;position:relative;display:flex;flex-direction:column;transition:all .3s}
+.partner-card.recommended{background:var(--primary-deep);color:#fff;border-color:var(--accent);transform:scale(1.02);box-shadow:var(--shadow-lg)}
+.partner-card.recommended .partner-letter{color:var(--accent)}
+.partner-card.recommended .partner-title{color:#fff}
+.partner-card.recommended .partner-desc,.partner-card.recommended .partner-bullets li{color:rgba(255,255,255,.78)}
+.partner-card.recommended .partner-fit{border-top-color:rgba(255,255,255,.2);color:var(--accent-soft)}
+.partner-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--primary-deep);padding:6px 18px;border-radius:99px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.partner-letter{font-family:var(--serif);font-style:italic;font-size:72px;color:var(--accent-deep);font-weight:400;line-height:.85;margin-bottom:8px}
+.partner-name{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mute);font-weight:600;margin-bottom:18px}
+.partner-card.recommended .partner-name{color:rgba(255,255,255,.55)}
+.partner-title{font-family:var(--serif);font-style:italic;font-size:26px;font-weight:400;color:var(--text);margin-bottom:14px;line-height:1.15}
+.partner-desc{font-size:14px;color:var(--text-soft);line-height:1.55;margin-bottom:20px}
+.partner-bullets{margin-bottom:24px}
+.partner-bullets li{font-size:13px;color:var(--text-soft);padding:6px 0 6px 22px;position:relative}
+.partner-bullets li::before{content:"•";position:absolute;left:8px;color:var(--accent);font-weight:700;font-size:18px;line-height:1}
+.partner-fit{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);font-family:var(--serif);font-style:italic;font-size:15px;color:var(--primary)}
+
+/* ROADMAP */
+.roadmap{margin-top:40px;position:relative}
+.roadmap-line{position:absolute;top:48px;left:5%;right:5%;height:2px;background:var(--border)}
+.roadmap-line-fill{position:absolute;top:48px;left:5%;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width 1.5s ease}
+.roadmap-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;position:relative;z-index:1}
+@media (max-width:1024px){.roadmap-grid{grid-template-columns:repeat(2,1fr);gap:30px}.roadmap-line,.roadmap-line-fill{display:none}}
+.road-step{text-align:center;display:flex;flex-direction:column;align-items:center}
+.road-dot{width:48px;height:48px;border-radius:50%;background:var(--neutral-light);border:2px solid var(--primary);color:var(--primary);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:22px;font-weight:600;margin-bottom:18px;position:relative;z-index:2}
+.road-week{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:8px}
+.road-title{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:400;color:var(--text);margin-bottom:8px;line-height:1.2}
+.road-desc{font-size:12px;color:var(--text-soft);line-height:1.45}
+
+/* FINAL */
+.final{background:linear-gradient(135deg,var(--primary-deep),#3a1700);color:#fff;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px var(--pad);position:relative;overflow:hidden}
+.final-orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.4;pointer-events:none}
+.final-orb.gold{background:var(--accent);width:600px;height:600px;top:-200px;left:50%;transform:translateX(-50%)}
+.final-content{position:relative;z-index:2;max-width:800px}
+.final-pre{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--accent-soft);margin-bottom:32px}
+.final-title{font-family:var(--serif);font-style:italic;font-size:clamp(48px,7vw,84px);line-height:1.05;color:#fff;margin-bottom:32px;font-weight:400}
+.final-title em{color:var(--accent-soft)}
+.final-lede{font-size:22px;color:rgba(255,255,255,.85);line-height:1.55;margin-bottom:48px}
+.final-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn{padding:20px 40px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;border:1px solid;display:inline-block;font-family:inherit}
+.btn-gold{background:var(--accent);color:var(--primary-deep);border-color:var(--accent)}
+.btn-gold:hover{background:var(--accent-soft);transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(244,192,78,.5)}
+.btn-outline{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-outline:hover{background:#fff;color:var(--primary-deep);border-color:#fff}
+.final-sig{border-top:1px solid rgba(255,255,255,.18);padding-top:32px;margin-top:32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}.stagger-4{transition-delay:.4s}
+[data-counter]{display:inline-block}
+
+@media print{
+  .topbar,.sidedex{display:none}
+  .slide{break-after:page;min-height:auto}
+  body{background:white;color:black}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">Pitch · @thidebrito · Exemplo</div>
+  <div class="topbar-progress"><div class="topbar-progress-bar" id="progress"></div></div>
+  <div class="topbar-actions">
+    <button class="topbar-btn" onclick="window.print()">Salvar PDF</button>
+    <button class="topbar-btn primary" onclick="document.documentElement.requestFullscreen?.()">▶ Apresentar</button>
+  </div>
+</header>
+
+<nav class="sidedex" id="sidedex">
+  <a href="#s1" class="sidedex-dot" data-label="Capa"></a>
+  <a href="#s2" class="sidedex-dot" data-label="O que vi em você"></a>
+  <a href="#s3" class="sidedex-dot" data-label="Quem é Thiago"></a>
+  <a href="#s4" class="sidedex-dot" data-label="O que preservar"></a>
+  <a href="#s5" class="sidedex-dot" data-label="Oportunidades"></a>
+  <a href="#s6" class="sidedex-dot" data-label="Direção criativa"></a>
+  <a href="#s7" class="sidedex-dot" data-label="Site atual"></a>
+  <a href="#s8" class="sidedex-dot" data-label="Os 6 produtos"></a>
+  <a href="#s9" class="sidedex-dot" data-label="Projeção"></a>
+  <a href="#s10" class="sidedex-dot" data-label="Parceria"></a>
+  <a href="#s11" class="sidedex-dot" data-label="Roadmap"></a>
+  <a href="#s12" class="sidedex-dot" data-label="Próximo passo"></a>
+</nav>
+
+<!-- 01 COVER -->
+<section class="slide cover" id="s1">
+  <div class="cover-grid"></div>
+  <div class="cover-orb gold"></div>
+  <div class="cover-orb warm"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow reveal">Plano de Crescimento Digital · 2026 · Auto-pitch</div>
+    <h1 class="cover-name reveal">Thiago<br/><em>Brito</em></h1>
+    <div class="cover-meta reveal">
+      <div><strong>De B2C low-ticket</strong>à plataforma B2B + recorrência</div>
+      <div><strong>15+ anos · 8.7k seguidores</strong>@thidebrito ✓ verificado</div>
+      <div><strong>Auto-análise estratégica</strong>exemplo da skill · maio/2026</div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <span>Exemplo · Skill proposta-comercial</span>
+    <span>Aperte ↓ pra começar</span>
+  </div>
+</section>
+
+<!-- 02 ESPELHO -->
+<section class="slide" id="s2">
+  <div class="container">
+    <div class="slide-num reveal">02 · Espelho</div>
+    <div class="eyebrow reveal">O que eu vi em você</div>
+    <h2 class="slide-title reveal">Você construiu<br/>um <em>ecossistema raro</em></h2>
+    <p class="slide-lede reveal">Antes de propor qualquer coisa, deixa devolver os números que andei recolhendo do thidebrito.com.br, do @thidebrito e do que você já entregou em produção. Pra você ver o tamanho do ativo em mãos.</p>
+    <div class="mirror-grid">
+      <div class="mirror-cell reveal"><div class="mirror-num"><span data-counter="15">0</span><em>+</em></div><div class="mirror-label">Anos como criador<br/>digital</div></div>
+      <div class="mirror-cell reveal stagger-1"><div class="mirror-num"><span data-counter="8700">0</span></div><div class="mirror-label">Seguidores no<br/>@thidebrito ✓</div></div>
+      <div class="mirror-cell reveal stagger-2"><div class="mirror-num"><span data-counter="58">0</span></div><div class="mirror-label">Artigos no blog<br/>PT-BR + EN-GB</div></div>
+      <div class="mirror-cell reveal stagger-3"><div class="mirror-num"><span data-counter="5">0</span><em>+</em></div><div class="mirror-label">Produtos digitais<br/>em produção</div></div>
+      <div class="mirror-cell reveal"><div class="mirror-num"><span data-counter="2">0</span></div><div class="mirror-label">Mercados ativos<br/>BR + Europa (PT)</div></div>
+      <div class="mirror-cell reveal stagger-1"><div class="mirror-num"><span data-counter="3">0</span></div><div class="mirror-label">Pilares cruzados<br/>Marketing · IA · Música</div></div>
+      <div class="mirror-cell reveal stagger-2"><div class="mirror-num"><span data-counter="29">0</span></div><div class="mirror-label">Posts bilíngues<br/>publicados (cada idioma)</div></div>
+      <div class="mirror-cell reveal stagger-3"><div class="mirror-num"><span data-counter="100">0</span><em>%</em></div><div class="mirror-label">Stack próprio<br/>solo operator</div></div>
+    </div>
+    <div class="mirror-tape reveal">
+      <strong>E uma combinação rara: tecnicista que entrega + identidade artística autêntica (banda @cerberado) + IA aplicada de verdade.</strong>
+    </div>
+    <div class="credentials-marquee reveal">
+      <span>React 19 + Vite + TS</span>
+      <span>Three.js · GSAP · Anime.js</span>
+      <span>Supabase · Resend · Vercel</span>
+      <span>Claude API · Agentes</span>
+      <span>Meta Ads · Pixel <PIXEL_META_ID></span>
+      <span>Hotmart · Stripe</span>
+      <span>Patrocinador: Ricriari Cymbals</span>
+    </div>
+  </div>
+</section>
+
+<!-- 03 BIO -->
+<section class="slide" id="s3">
+  <div class="container">
+    <div class="slide-num reveal">03 · Posicionamento</div>
+    <div class="eyebrow reveal">Quem você é (na minha leitura)</div>
+    <h2 class="slide-title reveal">A interseção rara<br/>entre <em>marketing, IA</em><br/>e identidade autêntica</h2>
+    <div class="bio-grid">
+      <div class="bio-text reveal">
+        <div class="bio-quote">"Marketing digital, tráfego pago, IA. Baterista da @cerberado." — sua bio, em uma linha</div>
+        <p>Você não é "mais um guru de marketing" — é um <strong>criador-implementador de 15 anos</strong> que cruza marketing digital, tráfego pago, IA aplicada e identidade artística autêntica (banda ativa, endorsement Ricriari).</p>
+        <p>Mais raro ainda: cada produto que você lança vem com stack técnico completo — <strong>do React ao Resend, do Pixel ao Stripe, da Hotmart ao app PWA</strong>. Onde concorrentes contratam, você implementa.</p>
+        <p>Esse trio — <strong>técnica + estratégia + identidade</strong> — é o ativo mais valioso que você tem. Hoje monetizado em B2C low ticket. Mas o caminho real de escala é <em>B2B e recorrência</em> — e é aí que esse plano entra.</p>
+      </div>
+      <div class="bio-portrait reveal stagger-1">
+        <span class="bio-portrait-letter">T</span>
+      </div>
+    </div>
+    <div class="creds-strip">
+      <div class="cred-card reveal"><div class="cred-year">15+ anos</div><div class="cred-inst">Empreendedor digital</div></div>
+      <div class="cred-card reveal stagger-1"><div class="cred-year">2017</div><div class="cred-inst">Foco em tráfego pago Meta</div></div>
+      <div class="cred-card reveal stagger-2"><div class="cred-year">2024+</div><div class="cred-inst">IA aplicada · Claude SDK</div></div>
+      <div class="cred-card reveal stagger-3"><div class="cred-year">2026</div><div class="cred-inst">5+ produtos em produção</div></div>
+      <div class="cred-card reveal stagger-4"><div class="cred-year">●</div><div class="cred-inst">Banda @cerberado · Macakongs 2099</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRESERVAR -->
+<section class="slide" id="s4">
+  <div class="container">
+    <div class="slide-num reveal">04 · Diagnóstico</div>
+    <div class="eyebrow reveal">O que está funcionando — preservar</div>
+    <h2 class="slide-title reveal">Cinco pilares<br/><em>que já estão sólidos</em></h2>
+    <p class="slide-lede reveal">A nova fase do seu plano não joga nada disso fora. Pelo contrário — amplifica.</p>
+    <div class="preserve-grid">
+      <div class="preserve-card reveal">
+        <span class="preserve-num">01</span>
+        <div class="preserve-icon">⌖</div>
+        <h3 class="preserve-title">15 anos de execução</h3>
+        <p class="preserve-text">Não é teoria — é entrega. Você fez do zero ao em produção em projetos próprios. Credibilidade que não se compra.</p>
+      </div>
+      <div class="preserve-card reveal stagger-1">
+        <span class="preserve-num">02</span>
+        <div class="preserve-icon">∞</div>
+        <h3 class="preserve-title">Stack técnico próprio</h3>
+        <p class="preserve-text">Do React 19 à Claude API, da Hotmart ao Resend. Você não depende de fornecedor pra fazer nada. Liberdade total.</p>
+      </div>
+      <div class="preserve-card reveal stagger-2">
+        <span class="preserve-num">03</span>
+        <div class="preserve-icon">★</div>
+        <h3 class="preserve-title">Site técnico premium</h3>
+        <p class="preserve-text">React 19 + Three.js + GSAP. Blog bilíngue ativo. Performance Lighthouse alta. Site é portfolio em si.</p>
+      </div>
+      <div class="preserve-card reveal stagger-3">
+        <span class="preserve-num">04</span>
+        <div class="preserve-icon">🎵</div>
+        <h3 class="preserve-title">Identidade artística</h3>
+        <p class="preserve-text">@cerberado, projetos Macakongs/Diffen/Kyballium, endorsement Ricriari. Diferencial humano que separa de qualquer guru genérico.</p>
+      </div>
+      <div class="preserve-card reveal">
+        <span class="preserve-num">05</span>
+        <div class="preserve-icon">🍊</div>
+        <h3 class="preserve-title">Audiência fiel</h3>
+        <p class="preserve-text">8.7k seguidores no Instagram verificado, 1.2k posts. Base orgânica construída em anos — pronta pra ser ativada em produtos B2B.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 OPORTUNIDADES -->
+<section class="slide" id="s5">
+  <div class="container">
+    <div class="slide-num reveal">05 · Diagnóstico</div>
+    <div class="eyebrow reveal">Onde tem dinheiro na mesa</div>
+    <h2 class="slide-title reveal">Seis oportunidades<br/><em>concretas</em> de crescimento</h2>
+    <p class="slide-lede reveal">Cada uma é um vetor de receita que sua autoridade atual sustenta — mas que ainda não está monetizado.</p>
+    <table class="opp-table reveal">
+      <thead>
+        <tr><th style="width:40px">#</th><th>O que evoluir</th><th>Por que é real</th><th>Onde está o ganho</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="opp-icon">1</span></td>
+          <td><strong>Mentoria 1:1 / consultoria pra criadores</strong><br/><span style="color:var(--text-mute);font-size:13px">Hoje só vende e-book R$97. Mentoria de R$3-5k não existe.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">~30k criadores brasileiros tentando montar ecossistema digital. Poucos sabem fazer end-to-end.</span></td>
+          <td><span class="opp-impact">+R$84k/ano com<br/>8 mentorados/ciclo</span></td>
+        </tr>
+        <tr>
+          <td><span class="opp-icon">2</span></td>
+          <td><strong>Comunidade B2B "Stack do Criador"</strong><br/><span style="color:var(--text-mute);font-size:13px">8.7k seguidores nunca foram convertidos em assinatura recorrente.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">Mercado de creator-economy em alta. Comunidades premium tipo Circle, Skool, Lvl funcionam.</span></td>
+          <td><span class="opp-impact">+R$236k/ano com<br/>100 membros × R$197/mês</span></td>
+        </tr>
+        <tr>
+          <td><span class="opp-icon">3</span></td>
+          <td><strong>Newsletter premium "Bastidores do Criador"</strong><br/><span style="color:var(--text-mute);font-size:13px">Não tem newsletter premium. Substack/Beehiiv ainda virgens.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">Conteúdo único do bastidor é ouro. Quem entrega stack/processos/IA junto vende muito.</span></td>
+          <td><span class="opp-impact">+R$174k/ano com<br/>500 assinantes × R$29/mês</span></td>
+        </tr>
+        <tr>
+          <td><span class="opp-icon">4</span></td>
+          <td><strong>Canal YouTube + Cortes Reels</strong><br/><span style="color:var(--text-mute);font-size:13px">Sem canal ativo. Maior canal de aquisição orgânica do mercado, ignorado.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">Você tem voz, cara, conteúdo técnico aplicado. Drauzio, Diogo, Conrado já fizeram esse caminho.</span></td>
+          <td><span class="opp-impact">+R$60k direto + autoridade<br/>10k subs em 12 meses</span></td>
+        </tr>
+        <tr>
+          <td><span class="opp-icon">5</span></td>
+          <td><strong>Imersão presencial anual</strong><br/><span style="color:var(--text-mute);font-size:13px">Sem produto presencial. High ticket subutilizado.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">Comunidade premium PEDE encontros. Margem alta. Captura conteúdo pro próximo lançamento.</span></td>
+          <td><span class="opp-impact">+R$90k em 1 evento/ano<br/>30 vagas × R$3k</span></td>
+        </tr>
+        <tr>
+          <td><span class="opp-icon">6</span></td>
+          <td><strong>Curso flagship "Stack Completa do Criador"</strong><br/><span style="color:var(--text-mute);font-size:13px">Conteúdo está disperso em e-books pequenos. Falta um produto guarda-chuva.</span></td>
+          <td><span style="font-size:13px;color:var(--text-soft)">Quem quer aprender tudo prefere 1 produto definitivo. Tickets R$1-3k convertem se entregam.</span></td>
+          <td><span class="opp-impact">+R$199k/ano<br/>R$1.997 × 100 vendas</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 06 DIREÇÃO -->
+<section class="slide" id="s6">
+  <div class="container">
+    <div class="slide-num reveal">06 · Visão</div>
+    <div class="eyebrow reveal">Direção criativa</div>
+    <h2 class="slide-title reveal">Editorial-tech<br/><em>quente</em></h2>
+    <p class="slide-lede reveal">Sua identidade visual já existe — laranja queimado + marrom quente, refletindo os emojis 🍊🤎. Vou consolidar e replicar nos novos produtos.</p>
+    <div class="moodboard">
+      <div>
+        <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--primary);margin-bottom:18px;font-weight:600;text-transform:uppercase">A Paleta · do site atual</h3>
+        <div class="palette">
+          <div class="swatch reveal" style="background:#D2691E"><div class="swatch-hex">#D2691E</div><div class="swatch-name">Âmbar Criador</div></div>
+          <div class="swatch reveal stagger-1" style="background:#8B3A0E"><div class="swatch-hex">#8B3A0E</div><div class="swatch-name">Marrom Quente</div></div>
+          <div class="swatch reveal stagger-2" style="background:#F4C04E;color:#3a1700"><div class="swatch-hex">#F4C04E</div><div class="swatch-name">Mostarda Brilho</div></div>
+          <div class="swatch reveal stagger-3" style="background:#FAF7F2;color:#3a1700;border:1px solid var(--border)"><div class="swatch-hex">#FAF7F2</div><div class="swatch-name">Off-white Quente</div></div>
+        </div>
+      </div>
+      <div class="reveal stagger-1">
+        <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--primary);margin-bottom:18px;font-weight:600;text-transform:uppercase">A Tipografia</h3>
+        <div class="typo-stack">
+          <div class="typo-row">
+            <div class="typo-label">Display · Serif italic editorial</div>
+            <div class="typo-sample-display">Instrument Serif</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-label">Corpo · Sans clean</div>
+            <div class="typo-sample-body">Inter — direto, técnico, premium.</div>
+          </div>
+        </div>
+      </div>
+      <div class="principles">
+        <div class="principle reveal"><div class="principle-name">Calor humano</div><div class="principle-desc">Laranja/marrom transmitem proximidade. Não é tech-frio. Tem alma de criador, não de SaaS genérico.</div></div>
+        <div class="principle reveal stagger-1"><div class="principle-name">Performance visível</div><div class="principle-desc">Números, KPIs, métricas em mono — discretos, nítidos. Tech sem cair em dashboard chato.</div></div>
+        <div class="principle reveal stagger-2"><div class="principle-name">Editorial premium</div><div class="principle-desc">Tipografia italic, espaçamento generoso. Pitch parece revista de design, não slide PowerPoint.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SITE -->
+<section class="slide" id="s7">
+  <div class="container">
+    <div class="slide-num reveal">07 · Visão</div>
+    <div class="eyebrow reveal">Seu site atual — base sólida</div>
+    <h2 class="slide-title reveal">Stack premium<br/>já no <em>ar hoje</em></h2>
+    <p class="slide-lede reveal">Não é mockup. <strong>thidebrito.com.br</strong> está rolando agora — React 19, Three.js, GSAP, blog bilíngue, proxy pra subprojetos. Próximo passo é construir os <strong>produtos B2B</strong> em volta dele.</p>
+    <div class="laptop reveal">
+      <div class="laptop-bar">
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-dot"></span>
+        <span class="laptop-bar-url">thidebrito.com.br · v.atual</span>
+      </div>
+      <div class="laptop-screen">
+        <div class="laptop-screen-mock">
+          <h3>thidebrito.com.br</h3>
+          <p>Site principal · React 19 + Vite + TS + Tailwind. Three.js partículas no hero. GSAP ScrollTrigger. Blog com 29 PT-BR + 29 EN-GB. Proxy <code style="background:var(--neutral-warm);padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:12px">/release</code> e <code style="background:var(--neutral-warm);padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:12px">/api/*</code> pra subprojetos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="laptop-actions">
+      <a class="topbar-btn primary" href="https://www.thidebrito.com.br" target="_blank">Abrir site real ↗</a>
+      <a class="topbar-btn" href="https://www.instagram.com/thidebrito" target="_blank">Instagram ↗</a>
+      <a class="topbar-btn" href="https://www.thidebrito.com.br/blog" target="_blank">Blog bilíngue ↗</a>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--text-mute);font-style:italic;font-family:var(--serif)">Identidade visual já consolidada — nos novos produtos vamos amplificar a mesma paleta e tipografia.</p>
+  </div>
+</section>
+
+<!-- 08 PRODUTOS -->
+<section class="slide" id="s8">
+  <div class="container">
+    <div class="slide-num reveal">08 · A parceria</div>
+    <div class="eyebrow reveal">Os seis produtos pra criarmos</div>
+    <h2 class="slide-title reveal">De B2C low-ticket<br/>ao <em>ecossistema B2B</em></h2>
+    <p class="slide-lede reveal">Cada produto resolve um vetor diferente: aquisição (vídeo/SEO), recorrência (newsletter/comunidade), escala (mentoria/imersão), guarda-chuva (curso flagship).</p>
+    <div class="products">
+
+      <article class="product-card reveal">
+        <div class="product-mock mock-mentoria">
+          <div class="mock-mentoria-badge">
+            <div class="l1">★ MENTORIA · 1:1 ★</div>
+            <div class="l2">Stack do Criador<br/>de A a Z</div>
+            <div class="l3">8 mentorados · 3 meses</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">01 · High ticket · B2C</span>
+          <h3 class="product-name">Mentoria 1:1 pra criadores digitais</h3>
+          <p class="product-pitch">3 meses de acompanhamento próximo pra criadores que querem montar ecossistema completo (site + ebook + ads + IA). Você ensina o que fez na própria operação.</p>
+          <div class="product-meta">
+            <span><strong>R$ 3.500/3 meses</strong></span>
+            <span>8 mentorados/ciclo · 3 ciclos/ano</span>
+            <span>R$84k/ano</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal stagger-1">
+        <div class="product-mock mock-saas">
+          <div class="mock-dashboard">
+            <div class="mock-dashboard-side">
+              <div>● Lives mensais</div><div>● Stack guides</div><div>● IA prompts</div><div>● Discord VIP</div><div>● Cases</div>
+            </div>
+            <div class="mock-dashboard-main">
+              <div class="mock-dashboard-h">Stack do Criador</div>
+              <div class="mock-dashboard-stats">
+                <div class="mock-dashboard-stat"><strong>104</strong>membros</div>
+                <div class="mock-dashboard-stat"><strong>R$20k</strong>MRR</div>
+                <div class="mock-dashboard-stat"><strong>94%</strong>retenção</div>
+              </div>
+              <div class="mock-dashboard-chart">
+                <div class="mock-dashboard-bars">
+                  <div class="mock-dashboard-bar" style="height:25%"></div>
+                  <div class="mock-dashboard-bar" style="height:38%"></div>
+                  <div class="mock-dashboard-bar" style="height:50%"></div>
+                  <div class="mock-dashboard-bar" style="height:62%"></div>
+                  <div class="mock-dashboard-bar" style="height:75%"></div>
+                  <div class="mock-dashboard-bar" style="height:85%"></div>
+                  <div class="mock-dashboard-bar" style="height:95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">02 · Recorrente · B2B/B2C</span>
+          <h3 class="product-name">Comunidade "Stack do Criador"</h3>
+          <p class="product-pitch">Assinatura mensal pra criadores que querem trocar técnica, IA, ads, web. Live mensal + Discord VIP + biblioteca de stacks + cases reais da sua operação.</p>
+          <div class="product-meta">
+            <span><strong>R$ 197/mês</strong></span>
+            <span>Meta: 100+ membros em 12m</span>
+            <span>R$236k/ano</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal stagger-2">
+        <div class="product-mock mock-news">
+          <div class="mock-letter">
+            <div class="mock-letter-h">Como o Claude SDK virou meu sócio invisível</div>
+            <div class="mock-letter-p">Hoje quero falar de algo prático. Você acessa qualquer LLM API e vai longe — mas o jeito que estruturei o Claude na minha rotina mudou tudo.</div>
+            <div class="mock-letter-p">Vou contar o que eu fiz, com prompts reais e resultado mensurável.</div>
+            <div class="mock-letter-sig">— Thiago, da @cerberado</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">03 · Newsletter · Recorrente</span>
+          <h3 class="product-name">Newsletter "Bastidores do Criador"</h3>
+          <p class="product-pitch">1 carta semanal com bastidor real: prompt do Claude que resolveu X, ads que escalaram Y, framework que aplicou em Z. Conteúdo que ninguém mais entrega.</p>
+          <div class="product-meta">
+            <span><strong>R$ 29/mês</strong></span>
+            <span>Meta: 500 assinantes em 12m</span>
+            <span>R$174k/ano</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal stagger-3">
+        <div class="product-mock mock-youtube">
+          <div class="mock-yt-window">
+            <div class="mock-yt-thumb">
+              <div class="mock-yt-play">▶</div>
+              <div class="mock-yt-title">Como eu criei minha agência com IA em 1 mês</div>
+              <div class="mock-yt-time">14:22</div>
+            </div>
+            <div class="mock-yt-meta">
+              <div class="mock-yt-channel">Thiago Brito · @thidebrito</div>
+              <div class="mock-yt-stats">38k visualizações · há 2 dias</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">04 · Vídeo · Aquisição</span>
+          <h3 class="product-name">Canal YouTube + Cortes Reels</h3>
+          <p class="product-pitch">1 vídeo profundo/semana sobre stack, IA, marketing aplicado + 3-5 cortes verticais. Você tem voz, cara, conteúdo. Drauzio fez. Diogo fez. Tem espaço aberto.</p>
+          <div class="product-meta">
+            <span><strong>Gratuito + monetização</strong></span>
+            <span>Meta: 10k subs em 12m</span>
+            <span>R$60k direto + autoridade</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-mock mock-imersao">
+          <div class="mock-imersao-poster">
+            <div class="pre">★ IMERSÃO ANUAL ★</div>
+            <div class="name">Stack Camp<br/>Brasília</div>
+            <div class="meta">2 dias · 30 vagas</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">05 · Premium presencial</span>
+          <h3 class="product-name">Imersão "Stack Camp" — anual</h3>
+          <p class="product-pitch">2 dias presencial em Brasília · grupo pequeno · stack ao vivo + IA aplicada + sessão de Q&A profunda. Captura conteúdo pro próximo lançamento.</p>
+          <div class="product-meta">
+            <span><strong>R$ 3.000/vaga</strong></span>
+            <span>30 vagas · 1 edição/ano</span>
+            <span>R$90k/ano</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal stagger-1">
+        <div class="product-mock mock-ebook">
+          <div class="mock-book">
+            <div class="mock-book-eye">Vol. flagship · 2026</div>
+            <div class="mock-book-title">Stack Completa<br/>do Criador<br/>(2026)</div>
+            <div class="mock-book-author">Thiago Brito</div>
+            <div class="mock-book-deco">★</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">06 · Curso · Mid ticket</span>
+          <h3 class="product-name">Curso flagship "Stack Completa"</h3>
+          <p class="product-pitch">Produto guarda-chuva: tudo que você sabe sobre marketing + tráfego + IA + web num único curso. Substitui o caos dos e-books pequenos por 1 produto definitivo.</p>
+          <div class="product-meta">
+            <span><strong>R$ 1.997/único</strong></span>
+            <span>Meta: 100 vendas/ano</span>
+            <span>R$199k/ano</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 09 PROJEÇÃO -->
+<section class="slide" id="s9">
+  <div class="container">
+    <div class="slide-num reveal">09 · Os números</div>
+    <div class="eyebrow reveal">Projeção financeira ano 1</div>
+    <h2 class="slide-title reveal">Cenário <em>conservador</em><br/>(propositalmente)</h2>
+    <p class="slide-lede reveal">Os 6 produtos novos entregam <strong>~R$843k</strong> em receita ano 1, sem mexer nos e-books atuais que continuam rodando. Modelo simbólico de auto-pitch · split 60/40.</p>
+    <div class="proj">
+      <table class="proj-table reveal">
+        <thead><tr><th>Produto</th><th>Receita ano 1</th><th>Sua parte (60%)</th></tr></thead>
+        <tbody>
+          <tr><td>Comunidade "Stack do Criador" (R$197/mês × 100)</td><td>R$ 236.000</td><td>R$ 141.600</td></tr>
+          <tr><td>Curso flagship "Stack Completa"</td><td>R$ 199.000</td><td>R$ 119.400</td></tr>
+          <tr><td>Newsletter "Bastidores" (R$29/mês × 500)</td><td>R$ 174.000</td><td>R$ 104.400</td></tr>
+          <tr><td>Imersão anual "Stack Camp"</td><td>R$ 90.000</td><td>R$ 54.000</td></tr>
+          <tr><td>Mentoria 1:1 (8 × 3 ciclos)</td><td>R$ 84.000</td><td>R$ 50.400</td></tr>
+          <tr><td>YouTube monetização + parcerias</td><td>R$ 60.000</td><td>R$ 36.000</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Total ano 1</td><td>R$ 843.000</td><td>R$ 505.800</td></tr>
+        </tfoot>
+      </table>
+      <div class="proj-bars reveal">
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="28"><span class="proj-bar-val">R$236k</span></div><div class="proj-bar-label">Comunidade<br/>B2B</div></div>
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="24"><span class="proj-bar-val">R$199k</span></div><div class="proj-bar-label">Curso<br/>flagship</div></div>
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="21"><span class="proj-bar-val">R$174k</span></div><div class="proj-bar-label">Newsletter<br/>premium</div></div>
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="11"><span class="proj-bar-val">R$90k</span></div><div class="proj-bar-label">Imersão<br/>anual</div></div>
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="10"><span class="proj-bar-val">R$84k</span></div><div class="proj-bar-label">Mentoria<br/>1:1</div></div>
+        <div class="proj-bar-wrap"><div class="proj-bar" data-h="7"><span class="proj-bar-val">R$60k</span></div><div class="proj-bar-label">YouTube +<br/>monetização</div></div>
+      </div>
+      <p class="proj-disclaimer reveal">Estimativas conservadoras com base em benchmarks reais (Substack, Skool, Hotmart, comunidades brasileiras). Sem prometer resultado · sem garantir faturamento. Receita atual de e-books permanece à parte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PARCERIA -->
+<section class="slide" id="s10">
+  <div class="container">
+    <div class="slide-num reveal">10 · A parceria</div>
+    <div class="eyebrow reveal">Três modelos possíveis</div>
+    <h2 class="slide-title reveal">Você escolhe<br/><em>como entramos juntos</em></h2>
+    <p class="slide-lede reveal">No exemplo desse pitch o split é simbólico (auto-análise). Em um pitch real, esses 3 modelos seriam discutidos. JV (B) é o recomendado padrão.</p>
+    <div class="partnership">
+      <div class="partner-card reveal">
+        <div class="partner-letter">A</div>
+        <div class="partner-name">Service + Royalty</div>
+        <h3 class="partner-title">Cliente paga setup + divide produtos novos</h3>
+        <p class="partner-desc">R$10-18k de setup por produto + 20% de revenue share por 24 meses.</p>
+        <ul class="partner-bullets">
+          <li>Cliente desembolsa caixa hoje</li>
+          <li>Mantém 80% da receita nova</li>
+          <li>Sai mais barato no longo prazo</li>
+        </ul>
+        <div class="partner-fit">Ideal pra cliente que prefere baixa dependência.</div>
+      </div>
+      <div class="partner-card recommended reveal stagger-1">
+        <div class="partner-badge">★ Recomendado</div>
+        <div class="partner-letter">B</div>
+        <div class="partner-name">Joint Venture · 60/40</div>
+        <h3 class="partner-title">Sem desembolso · somos parceiros</h3>
+        <p class="partner-desc">Cliente não paga nada de setup. A consultoria/agência constrói tudo. Lucros divididos 60% cliente · 40% consultoria por 24m, com cláusula de saída.</p>
+        <ul class="partner-bullets">
+          <li>Risco zero de caixa pro cliente</li>
+          <li>Consultoria fica alinhada ao sucesso</li>
+          <li>Vínculo forte, decisões compartilhadas</li>
+          <li>Saída livre após 24 meses</li>
+        </ul>
+        <div class="partner-fit">Ideal pra começar leve, validar a química.</div>
+      </div>
+      <div class="partner-card reveal stagger-2">
+        <div class="partner-letter">C</div>
+        <div class="partner-name">Equity · Empresa nova</div>
+        <h3 class="partner-title">Criamos uma empresa juntos</h3>
+        <p class="partner-desc">Sociedade formal · cliente 60% · consultoria 40%. Lucro mensal · governança definida.</p>
+        <ul class="partner-bullets">
+          <li>Estrutura formal sólida</li>
+          <li>Pode captar investimento futuro</li>
+          <li>Vínculo de longo prazo (5-10 anos)</li>
+        </ul>
+        <div class="partner-fit">Ideal se já há confiança consolidada.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 ROADMAP -->
+<section class="slide" id="s11">
+  <div class="container">
+    <div class="slide-num reveal">11 · Execução</div>
+    <div class="eyebrow reveal">Roadmap dos 12 primeiros meses</div>
+    <h2 class="slide-title reveal">Da assinatura<br/>à <em>imersão presencial</em></h2>
+    <p class="slide-lede reveal">Em 30 dias: newsletter premium ao ar + 5 vídeos YouTube. Em 90 dias: comunidade B2B aberta. Em 12 meses: ecossistema completo operando.</p>
+    <div class="roadmap">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-line-fill" id="road-fill"></div>
+      <div class="roadmap-grid">
+        <div class="road-step reveal"><div class="road-dot">0</div><div class="road-week">Sem 0</div><div class="road-title">Descoberta</div><div class="road-desc">KPIs baseline · acessos · definição de tom editorial · setup técnico.</div></div>
+        <div class="road-step reveal stagger-1"><div class="road-dot">1</div><div class="road-week">Sem 1-2</div><div class="road-title">Fundação</div><div class="road-desc">Newsletter premium ativa (Beehiiv/Substack) · landing de captura · integração com e-mail.</div></div>
+        <div class="road-step reveal stagger-2"><div class="road-dot">2</div><div class="road-week">Sem 3-4</div><div class="road-title">Vídeo no ar</div><div class="road-desc">5 primeiros vídeos YouTube + 15 cortes Reels · canal otimizado.</div></div>
+        <div class="road-step reveal stagger-3"><div class="road-dot">3</div><div class="road-week">Mês 3</div><div class="road-title">Comunidade B2B</div><div class="road-desc">"Stack do Criador" aberto · 30 primeiros membros · live mensal estabelecida.</div></div>
+        <div class="road-step reveal"><div class="road-dot">4</div><div class="road-week">Mês 4-6</div><div class="road-title">Mentoria + Curso</div><div class="road-desc">Mentoria 1:1 com 8 alunos · curso flagship em produção (lançamento mês 6).</div></div>
+        <div class="road-step reveal stagger-1"><div class="road-dot">5</div><div class="road-week">Mês 9-12</div><div class="road-title">Imersão Stack Camp</div><div class="road-desc">Imersão presencial em Brasília · 30 vagas · captação de cases pro próximo ciclo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 CTA FINAL -->
+<section class="slide final" id="s12">
+  <div class="final-orb gold"></div>
+  <div class="final-content">
+    <div class="final-pre reveal">★ E aí, começamos? ★</div>
+    <h2 class="final-title reveal">Newsletter ao vivo<br/>+ <em>5 vídeos YouTube</em><br/>em 30 dias.</h2>
+    <p class="final-lede reveal">Custo zero · primeira validação rápida. Em 30 dias temos 2 produtos novos no ar comprovando a química — antes de comprometer com os 4 produtos seguintes do roadmap.</p>
+    <div class="final-cta reveal">
+      <a class="btn btn-gold" href="https://wa.me/?text=Pitch%20auto-an%C3%A1lise%20%40thidebrito%20pronto">★ Topo conversar</a>
+      <a class="btn btn-outline" href="#s1">Reler do início</a>
+    </div>
+    <div class="final-sig reveal">
+      <span>Skill: proposta-comercial · v1.0</span>
+      <span>Exemplo · maio 2026</span>
+    </div>
+  </div>
+</section>
+
+<script>
+const obs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const counters = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.counter,10);
+    const dur = 1300; const start = performance.now();
+    const tick = (now)=>{
+      const t = Math.min((now-start)/dur,1);
+      const ease = 1-Math.pow(1-t,3);
+      el.textContent = Math.round(target*ease).toLocaleString('pt-BR');
+      if(t<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counters.unobserve(el);
+  });
+},{threshold:.4});
+document.querySelectorAll('[data-counter]').forEach(el=>counters.observe(el));
+
+const barObs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.height = (parseInt(e.target.dataset.h)*3) + '%';
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.proj-bar').forEach(b=>barObs.observe(b));
+
+const roadObs = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const fill = document.getElementById('road-fill');
+      if(fill) fill.style.width = '90%';
+      roadObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+const r = document.querySelector('.roadmap');
+if(r) roadObs.observe(r);
+
+const sections = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.sidedex-dot');
+const progress = document.getElementById('progress');
+function onScroll(){
+  const sc = window.scrollY;
+  const max = document.body.scrollHeight - window.innerHeight;
+  progress.style.width = ((sc/max)*100) + '%';
+  let active = 0;
+  sections.forEach((s,i)=>{ if(s.offsetTop - 200 <= sc) active = i; });
+  dots.forEach((d,i)=>d.classList.toggle('active',i===active));
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+let currentSlide = 0;
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){
+    e.preventDefault();
+    currentSlide = Math.min(currentSlide+1, sections.length-1);
+    sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();
+    currentSlide = Math.max(currentSlide-1, 0);
+    sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='Escape'){
+    if(document.fullscreenElement) document.exitFullscreen();
+  } else if(e.key==='Home'){
+    currentSlide=0; sections[0].scrollIntoView({behavior:'smooth'});
+  } else if(e.key==='End'){
+    currentSlide=sections.length-1; sections[currentSlide].scrollIntoView({behavior:'smooth'});
+  }
+});
+let scrollTimer;
+window.addEventListener('scroll', ()=>{
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(()=>{
+    const sc = window.scrollY;
+    sections.forEach((s,i)=>{ if(s.offsetTop - 200 <= sc) currentSlide = i; });
+  }, 100);
+});
+</script>
+</body>
+</html>

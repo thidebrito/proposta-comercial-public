@@ -1,0 +1,142 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Catálogo de arquétipos de produtos digitais por nicho. Strategist consulta esse arquivo pra propor 6 produtos viáveis e éticos. Cada arquétipo tem: tipo, modelo de receita, ticket realista, exemplo de mock visual."
+  },
+  "archetypes": {
+    "medico_cirurgiao": {
+      "context": "Médico cirurgião com consultório próprio (urologista, plástico, cardiologista, etc.). Receita primária: cirurgias particulares (R$15-80k/proc).",
+      "regulatory": "CFM Resolução 2.336/2023 + 2.314/2022 telemedicina. Não pode prometer cura, antes/depois, garantias.",
+      "products": [
+        {"name": "Telemedicina estruturada", "type": "B2C consulta", "ticket": "R$350-500/cons", "volume": "30/mês", "annual": "R$144k", "mock": "mock-tele"},
+        {"name": "Hub Saúde do [Especialidade] · Blog SEO + Newsletter", "type": "Conteúdo orgânico", "ticket": "Gratuito · funil", "volume": "5k inscritos meta", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Canal YouTube + Cortes Reels", "type": "Vídeo", "ticket": "Monetização + parcerias", "volume": "10k subs meta", "annual": "R$60k direto + autoridade", "mock": "mock-youtube"},
+        {"name": "Programa Segunda Opinião [Procedimento]", "type": "Premium B2C", "ticket": "R$700-1.200", "volume": "10-15/mês", "annual": "R$120k", "mock": "mock-mentoria"},
+        {"name": "Funil de [Procedimento Principal] · LPs + tráfego", "type": "Aquisição", "ticket": "+3-5 procedimentos/mês", "volume": "ROI bônus", "annual": "+R$540-900k bônus dr", "mock": "mock-funnel"},
+        {"name": "[Especialidade]Pro · Comunidade B2B", "type": "Recorrente B2B", "ticket": "R$297/mês", "volume": "50+ membros meta", "annual": "R$178k", "mock": "mock-saas"}
+      ]
+    },
+    "medico_clinico": {
+      "context": "Médico de consultório clínico (clínico geral, cardiologia ambulatorial, ginecologia, pediatria). Receita primária: consultas + planos de saúde.",
+      "regulatory": "CFM 2.336/2023 + 2.314/2022. LGPD para prontuário.",
+      "products": [
+        {"name": "Telemedicina + retornos", "type": "B2C consulta", "ticket": "R$300-450/cons", "volume": "40/mês", "annual": "R$144k", "mock": "mock-tele"},
+        {"name": "App de acompanhamento longitudinal", "type": "PWA paciente", "ticket": "Gratuito + premium", "volume": "5k installs", "annual": "R$60k", "mock": "mock-app"},
+        {"name": "Newsletter 'Consultório Aberto'", "type": "Conteúdo", "ticket": "Gratuito", "volume": "10k inscritos", "annual": "R$40k indireto", "mock": "mock-news"},
+        {"name": "Programa de check-up anual", "type": "Pacote anual", "ticket": "R$1.500-2.500", "volume": "30/mês", "annual": "R$540k", "mock": "mock-funnel"},
+        {"name": "Hub educacional · Blog SEO", "type": "Aquisição", "ticket": "Gratuito", "volume": "10k visits/mês", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Comunidade de pacientes (assinatura)", "type": "Recorrente", "ticket": "R$47/mês", "volume": "200 assinantes", "annual": "R$112k", "mock": "mock-saas"}
+      ]
+    },
+    "advogado": {
+      "context": "Advogado de banca própria ou sócio. Receita primária: honorários por causa.",
+      "regulatory": "OAB Provimento 205/2021. Não pode publicidade que ofenda dignidade da profissão. Não pode promessa de resultado.",
+      "products": [
+        {"name": "Consulta jurídica online (1ª avaliação)", "type": "B2C consulta", "ticket": "R$300-600", "volume": "20/mês", "annual": "R$108k", "mock": "mock-tele"},
+        {"name": "Hub Direito de [Área] · Blog SEO", "type": "Conteúdo", "ticket": "Gratuito", "volume": "5k visits/mês", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Newsletter 'Direito na Prática'", "type": "Email", "ticket": "Gratuito", "volume": "5k inscritos", "annual": "R$40k indireto", "mock": "mock-news"},
+        {"name": "Curso prático para outros advogados", "type": "B2B mid-ticket", "ticket": "R$1.500-3.000", "volume": "2 turmas/ano · 30 alunos", "annual": "R$135k", "mock": "mock-mentoria"},
+        {"name": "Memorial digital de casos vencidos", "type": "Autoridade", "ticket": "Gratuito", "volume": "Aumento de indicações", "annual": "R$60k indireto", "mock": "mock-funnel"},
+        {"name": "Comunidade B2B 'Banca Pro'", "type": "Recorrente B2B", "ticket": "R$197/mês", "volume": "50 membros", "annual": "R$118k", "mock": "mock-saas"}
+      ]
+    },
+    "esteta_dentista": {
+      "context": "Estética/Odontologia (dentista, harmonização facial, dermato estético). Tickets variáveis.",
+      "regulatory": "CFM (médico) ou CFO (odontologia) ou ANVISA RDC 786/2023 (estética não-médica). Sem antes/depois em algumas modalidades.",
+      "products": [
+        {"name": "Pacote de procedimentos com plano", "type": "B2C presencial", "ticket": "R$2-15k", "volume": "10/mês", "annual": "R$840k", "mock": "mock-funnel"},
+        {"name": "App de acompanhamento de evolução", "type": "PWA cliente", "ticket": "Incluso no pacote", "volume": "100% pacientes", "annual": "Retenção +30%", "mock": "mock-app"},
+        {"name": "Hub Beleza Real · Conteúdo educativo", "type": "Conteúdo", "ticket": "Gratuito", "volume": "10k inscritos newsletter", "annual": "R$60k indireto", "mock": "mock-news"},
+        {"name": "Curso pra outros profissionais", "type": "B2B", "ticket": "R$3-8k", "volume": "2 turmas/ano · 12 alunos", "annual": "R$132k", "mock": "mock-mentoria"},
+        {"name": "Programa antiidade premium (anual)", "type": "Pacote anual", "ticket": "R$8-20k", "volume": "20/ano", "annual": "R$280k", "mock": "mock-mentoria"},
+        {"name": "Comunidade VIP (clientes recorrentes)", "type": "Recorrente B2C", "ticket": "R$197/mês + benefícios", "volume": "100 membros", "annual": "R$236k", "mock": "mock-saas"}
+      ]
+    },
+    "coach": {
+      "context": "Coach (carreira, executivo, vida, performance). Receita primária: mentorias 1:1 e programas em grupo.",
+      "regulatory": "Sem restrição formal mas evite garantias de resultado financeiro/laboral.",
+      "products": [
+        {"name": "Mentoria 1:1 high ticket", "type": "B2C high ticket", "ticket": "R$5-15k/3 meses", "volume": "10 mentorados ativos", "annual": "R$300k", "mock": "mock-mentoria"},
+        {"name": "Programa em grupo (3-6 meses)", "type": "Group coaching", "ticket": "R$1.500-3.500", "volume": "2 turmas/ano · 20 alunos", "annual": "R$140k", "mock": "mock-mentoria"},
+        {"name": "Comunidade B2C recorrente", "type": "Recorrente", "ticket": "R$97/mês", "volume": "200 membros", "annual": "R$232k", "mock": "mock-saas"},
+        {"name": "E-book + Workbook (lead magnet → upsell)", "type": "Low ticket", "ticket": "R$67-147", "volume": "300/mês", "annual": "R$240k", "mock": "mock-ebook"},
+        {"name": "Newsletter 'Cartas do Coach'", "type": "Conteúdo", "ticket": "Gratuito", "volume": "10k inscritos", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Imersão presencial anual", "type": "Premium presencial", "ticket": "R$3-5k", "volume": "30 vagas/ano", "annual": "R$120k", "mock": "mock-mentoria"}
+      ]
+    },
+    "designer": {
+      "context": "Designer freelancer, agência boutique, estúdio criativo. Receita: projetos por escopo.",
+      "regulatory": "Sem regulamentação específica. Evite copyright issues em imagens.",
+      "products": [
+        {"name": "Pacote de identidade visual completa", "type": "Service core", "ticket": "R$8-30k", "volume": "3 projetos/mês", "annual": "R$540k", "mock": "mock-funnel"},
+        {"name": "Curso 'Brand do Zero ao 10k'", "type": "Curso online", "ticket": "R$497", "volume": "100 vendas/mês", "annual": "R$596k", "mock": "mock-ebook"},
+        {"name": "Comunidade de designers iniciantes", "type": "Recorrente B2B", "ticket": "R$97/mês", "volume": "300 membros", "annual": "R$349k", "mock": "mock-saas"},
+        {"name": "Mentoria 1:1 high ticket", "type": "Premium B2C", "ticket": "R$3-8k/3 meses", "volume": "8 ativos", "annual": "R$192k", "mock": "mock-mentoria"},
+        {"name": "Newsletter + Cases dissecados", "type": "Conteúdo", "ticket": "Gratuito", "volume": "5k inscritos", "annual": "R$60k indireto", "mock": "mock-news"},
+        {"name": "Templates / asset packs (Gumroad)", "type": "Low ticket recorrente", "ticket": "R$27-97/template", "volume": "200 vendas/mês", "annual": "R$120k", "mock": "mock-ebook"}
+      ]
+    },
+    "psicologo": {
+      "context": "Psicólogo clínico, com ou sem orientação específica (terapia cognitiva, psicanálise, etc.). Receita: consultas.",
+      "regulatory": "CFP Resolução 023/2022. Não pode promessa de cura, comparativo entre profissionais. Sigilo absoluto.",
+      "products": [
+        {"name": "Consulta online estruturada", "type": "B2C consulta", "ticket": "R$200-400/sessão", "volume": "60/mês", "annual": "R$216k", "mock": "mock-tele"},
+        {"name": "Newsletter 'Mente Cuidada'", "type": "Conteúdo", "ticket": "Gratuito", "volume": "10k inscritos", "annual": "R$50k indireto", "mock": "mock-news"},
+        {"name": "Grupo terapêutico online (3 meses)", "type": "Programa em grupo", "ticket": "R$497-997", "volume": "2 grupos/ano", "annual": "R$80k", "mock": "mock-mentoria"},
+        {"name": "Hub educacional 'Saúde Mental'", "type": "SEO", "ticket": "Gratuito", "volume": "8k visits/mês", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Programa pra empresas (B2B mental health)", "type": "B2B", "ticket": "R$3-10k/empresa", "volume": "3 contratos/ano", "annual": "R$60k", "mock": "mock-saas"},
+        {"name": "Curso pra colegas (psicologia.dx)", "type": "B2B mid", "ticket": "R$997-1.997", "volume": "2 turmas/ano · 30 alunos", "annual": "R$90k", "mock": "mock-mentoria"}
+      ]
+    },
+    "saas_startup": {
+      "context": "Founder de SaaS / startup B2B. Receita: assinatura.",
+      "regulatory": "LGPD pra dados de cliente.",
+      "products": [
+        {"name": "SaaS principal (assinatura)", "type": "MRR core", "ticket": "R$97-997/mês", "volume": "100 assinantes", "annual": "R$600k MRR", "mock": "mock-saas"},
+        {"name": "Free tier + freemium", "type": "Aquisição", "ticket": "Gratuito", "volume": "5k usuários gratuitos", "annual": "Funil → paid", "mock": "mock-app"},
+        {"name": "Marketplace de plugins/templates", "type": "Marketplace", "ticket": "R$27-297", "volume": "200 vendas/mês", "annual": "R$240k", "mock": "mock-ebook"},
+        {"name": "Curso 'Founder de SaaS' (educacional)", "type": "Mid ticket", "ticket": "R$497-1.497", "volume": "150 vendas/ano", "annual": "R$150k", "mock": "mock-ebook"},
+        {"name": "Newsletter founders", "type": "Conteúdo", "ticket": "Gratuito", "volume": "20k inscritos", "annual": "R$100k indireto", "mock": "mock-news"},
+        {"name": "Mentoria pra outros founders", "type": "High ticket", "ticket": "R$3-10k/3 meses", "volume": "5 ativos", "annual": "R$200k", "mock": "mock-mentoria"}
+      ]
+    },
+    "consultor_negocios": {
+      "context": "Consultor empresarial / business / processos. Receita primária: projetos B2B.",
+      "regulatory": "Sem restrição específica. Evite garantias quantitativas.",
+      "products": [
+        {"name": "Diagnóstico empresarial pago (1 dia)", "type": "Entry B2B", "ticket": "R$3-8k", "volume": "5/mês", "annual": "R$330k", "mock": "mock-funnel"},
+        {"name": "Projeto de transformação (3-6 meses)", "type": "High ticket B2B", "ticket": "R$30-80k", "volume": "8/ano", "annual": "R$440k", "mock": "mock-mentoria"},
+        {"name": "Mentoria pra fundadores", "type": "B2C high ticket", "ticket": "R$5-12k/3 meses", "volume": "10 ativos", "annual": "R$300k", "mock": "mock-mentoria"},
+        {"name": "Curso 'Negócios Que Escalam'", "type": "Mid B2C", "ticket": "R$1.497-2.997", "volume": "100 vendas/ano", "annual": "R$200k", "mock": "mock-ebook"},
+        {"name": "Newsletter pra fundadores", "type": "Conteúdo", "ticket": "Gratuito", "volume": "10k inscritos", "annual": "R$80k indireto", "mock": "mock-news"},
+        {"name": "Comunidade B2B founders", "type": "Recorrente", "ticket": "R$497/mês", "volume": "50 membros", "annual": "R$298k", "mock": "mock-saas"}
+      ]
+    },
+    "produtor_digital_creator": {
+      "context": "Criador de conteúdo, influencer, infoprodutor. Receita: produtos digitais + parcerias.",
+      "regulatory": "Sem restrição específica. Evite promessas de resultado e nichos sensíveis.",
+      "products": [
+        {"name": "Produto principal (curso flagship)", "type": "Core", "ticket": "R$497-1.997", "volume": "200 vendas/mês", "annual": "R$2.4M+", "mock": "mock-ebook"},
+        {"name": "Mentoria high ticket", "type": "Premium", "ticket": "R$5-15k", "volume": "20/ano", "annual": "R$200k", "mock": "mock-mentoria"},
+        {"name": "Comunidade VIP (Substack/Circle)", "type": "Recorrente", "ticket": "R$47-97/mês", "volume": "500 assinantes", "annual": "R$420k", "mock": "mock-saas"},
+        {"name": "E-books + Workbooks low ticket", "type": "Low", "ticket": "R$47-97", "volume": "500/mês", "annual": "R$420k", "mock": "mock-ebook"},
+        {"name": "Imersão anual presencial", "type": "Premium experiencial", "ticket": "R$3-7k", "volume": "100 vagas/ano", "annual": "R$500k", "mock": "mock-mentoria"},
+        {"name": "Marketplace de templates/recursos", "type": "Recorrente low", "ticket": "R$27-147", "volume": "300/mês", "annual": "R$240k", "mock": "mock-ebook"}
+      ]
+    }
+  },
+  "selection_logic": {
+    "step_1": "Identificar nicho do cliente no Bloco 1 do briefing",
+    "step_2": "Mapear pra um dos arquetipos acima (mais próximo)",
+    "step_3": "Escolher 6 dos products listados, priorizando: 1 core B2C, 1 aquisição, 1 autoridade, 1 premium, 1 funil, 1 recorrente B2B",
+    "step_4": "Adaptar nomes/specs ao cliente real (ex: 'Telemedicina urológica' em vez de 'Telemedicina genérica')",
+    "step_5": "VALIDAR contra restrições regulatórias do nicho (campo 'regulatory')"
+  },
+  "ethical_filters": {
+    "medico": ["sem garantia de cura", "sem antes/depois", "sem 'melhor', 'único'"],
+    "advogado": ["sem promessa de resultado", "sem ofensa à dignidade", "sem comparativo com colega"],
+    "psicologo": ["sem promessa de cura", "sem comparativo entre métodos terapêuticos"],
+    "financeiro": ["sem garantia de retorno", "sem rentabilidade futura", "sem 'investimento certo'"],
+    "estetica": ["sem antes/depois (algumas modalidades)", "sem promessa de transformação fixa"]
+  }
+}

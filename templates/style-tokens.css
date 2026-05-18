@@ -1,0 +1,127 @@
+/* ==========================================================
+   STYLE TOKENS — proposta-comercial
+   Variáveis CSS customizáveis · Substitua pelos valores da paleta escolhida.
+   Esse arquivo é importado pelo pitch.html — não tem CSS de componente, só tokens.
+   ========================================================== */
+
+:root {
+  /* ============================================
+     PALETA · {{ID_PALETA}}
+     Substituir hex codes pelos da paleta escolhida
+     em library/color-palettes.json
+     ============================================ */
+  --primary:        {{COR_PRIMARY}};         /* cor dominante */
+  --primary-deep:   {{COR_PRIMARY_DEEP}};    /* variante escura */
+  --primary-light:  {{COR_PRIMARY_LIGHT}};   /* variante clara */
+  --primary-soft:   {{COR_PRIMARY_SOFT}};    /* variante suave */
+
+  --accent:         {{COR_ACCENT}};          /* cor de destaque */
+  --accent-soft:    {{COR_ACCENT_SOFT}};     /* destaque suave */
+  --accent-deep:    {{COR_ACCENT_DEEP}};     /* destaque escuro */
+
+  --neutral-light:  {{COR_NEUTRAL_LIGHT}};   /* background principal */
+  --neutral-warm:   {{COR_NEUTRAL_WARM}};    /* background secundário */
+
+  --text:           {{COR_TEXT}};            /* texto primário */
+  --text-soft:      {{COR_TEXT_SOFT}};       /* texto secundário */
+  --text-mute:      {{COR_TEXT_MUTE}};       /* texto sutil */
+
+  --border:         {{COR_BORDER}};          /* bordas */
+  --border-soft:    {{COR_BORDER_SOFT}};     /* bordas sutis */
+
+  /* ============================================
+     TIPOGRAFIA · {{ID_TIPOGRAFIA}}
+     Famílias importadas via Google Fonts no <head> do pitch.html
+     ============================================ */
+  --serif: '{{FONT_SERIF}}', Georgia, serif;
+  --sans:  '{{FONT_SANS}}', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono:  '{{FONT_MONO}}', ui-monospace, 'JetBrains Mono', Menlo, Monaco, monospace;
+  --decorative: '{{FONT_DECORATIVE}}', 'Italiana', serif; /* opcional · deixar vazio se não usar */
+
+  /* ============================================
+     ESPAÇAMENTO E LAYOUT
+     ============================================ */
+  --container: 1200px;
+  --pad: clamp(1.25rem, 4vw, 2rem);
+  --pad-section: clamp(80px, 12vh, 120px);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 22px;
+
+  /* ============================================
+     SOMBRAS (baseadas na cor primária)
+     Substituir RGB pelos valores hex convertidos
+     ============================================ */
+  --shadow-sm: 0 2px 8px rgba({{PRIMARY_RGB}}, 0.06);
+  --shadow-md: 0 8px 24px rgba({{PRIMARY_RGB}}, 0.10);
+  --shadow-lg: 0 24px 60px rgba({{PRIMARY_RGB}}, 0.18);
+  --shadow-xl: 0 40px 100px rgba({{PRIMARY_DEEP_RGB}}, 0.25);
+
+  /* ============================================
+     ANIMAÇÕES
+     ============================================ */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.25s;
+  --duration: 0.4s;
+  --duration-slow: 0.8s;
+
+  /* ============================================
+     Z-INDEX
+     ============================================ */
+  --z-grain: 1;
+  --z-content: 2;
+  --z-nav: 50;
+  --z-modal: 100;
+  --z-overlay: 200;
+}
+
+/* ============================================
+   DARK MODE OPCIONAL
+   Pra ativar: <html data-theme="dark">
+   ============================================ */
+[data-theme="dark"] {
+  --neutral-light: #0F1419;
+  --neutral-warm: #1A2027;
+  --text: #F5F8FA;
+  --text-soft: #B0B8C0;
+  --text-mute: #6A7480;
+  --border: rgba(245,248,250,0.12);
+}
+
+/* ============================================
+   RESPONSIVO · TOKENS POR BREAKPOINT
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --pad-section: clamp(60px, 10vh, 80px);
+    --container: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+}
+
+/* ============================================
+   HOTFIXES UTILITÁRIOS
+   ============================================ */
+
+/* Suavização de fontes pra Mac */
+@supports (-webkit-font-smoothing: antialiased) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduce motion pra acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

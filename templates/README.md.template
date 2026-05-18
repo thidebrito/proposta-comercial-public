@@ -1,0 +1,90 @@
+# Pitch · {{NOME_CLIENTE}} · {{ANO}}
+
+Apresentação comercial HTML interativa preparada por **{{SEU_NOME}}** para **{{NOME_CLIENTE}}**, gerada via skill `proposta-comercial`.
+
+## O que tem
+
+- `pitch.html` — apresentação principal · 12 slides scroll editorial
+- `style-tokens.css` — variáveis CSS (paleta + tipografia)
+- `analise-privada.md` — 🔒 matriz de pensamento (NÃO compartilhar)
+- `briefing-preenchido.md` — captura do briefing (histórico)
+- `assets/` — fotos, logos, screenshots do cliente
+
+## Como rodar local
+
+```bash
+cd {{PASTA_PROJETO}}
+python3 -m http.server 8765
+# abre http://localhost:8765/pitch.html
+```
+
+Servidor local é necessário pro slide 07 (iframe) carregar corretamente.
+
+## Atalhos do pitch
+
+| Tecla | Ação |
+|---|---|
+| `↓` `→` `Space` | Próximo slide |
+| `↑` `←` | Slide anterior |
+| `Home` / `End` | Topo / Final |
+| `Esc` | Sair do fullscreen |
+
+## Modo apresentação
+
+Botão `▶ Apresentar` (canto superior direito) ativa fullscreen. Combine com setas pra navegar slide a slide.
+
+## Salvar como PDF
+
+Botão `Salvar PDF` no topo abre o diálogo de impressão. CSS já tem `@media print` ajustado pra cada slide virar 1 página.
+
+## Deploy (opcional · pra mandar link pro cliente)
+
+```bash
+# Vercel (recomendado · noindex já configurado)
+vercel --prod
+
+# Resultado: cliente-pitch-abc123.vercel.app
+```
+
+⚠️ **Nunca publica em domínio público sem `noindex,nofollow`** — material confidencial.
+
+## Stack técnico
+
+- HTML/CSS/JS puro · zero build · zero npm
+- Google Fonts: {{TIPOGRAFIA}}
+- Animações: IntersectionObserver (sem libs)
+
+## Paleta
+
+- `{{COR_PRIMARY}}` Primary
+- `{{COR_PRIMARY_DEEP}}` Primary Deep
+- `{{COR_ACCENT}}` Accent
+- `{{COR_NEUTRAL}}` Neutral
+
+## Estrutura dos 12 slides
+
+| # | Slide | Função |
+|---|---|---|
+| 01 | Capa | Identidade do cliente · posicionamento |
+| 02 | Espelho | Stats reais · counters animados |
+| 03 | Quem é | Bio editorial com quote real |
+| 04 | O que preservar | 5 pontos fortes |
+| 05 | Oportunidades | Tabela 4 colunas com 6 ganhos |
+| 06 | Direção criativa | Paleta + tipografia + 3 princípios |
+| 07 | Mockup/Site | Iframe com site atual ou novo |
+| 08 | 6 Produtos | Cards com mocks visuais |
+| 09 | Projeção | Tabela + barras animadas |
+| 10 | Modelos parceria | 3 cards (A/B/C com B recomendado) |
+| 11 | Roadmap | Timeline horizontal |
+| 12 | CTA final | Promessa de 30 dias |
+
+## Próximos passos depois do "sim"
+
+1. **Contrato de parceria** — modelo {{MODELO_PARCERIA}}
+2. **Setup técnico** — repo + deploy + integração
+3. **Primeiro produto ao vivo** — {{PRIMEIRO_PRODUTO}}
+
+---
+
+Confidencial. Não distribuir sem autorização.
+Gerado em {{DATA_GERACAO}} via `proposta-comercial` v{{SKILL_VERSION}}.

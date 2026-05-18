@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Pares de tipografia testados e validados para pitchs HTML. Cada par tem: serif (display/headlines), sans (body), mono (números/badges/code)."
+  },
+  "pairs": [
+    {
+      "id": "fraunces-inter",
+      "name": "Fraunces + Inter",
+      "fits": ["medico", "saude", "premium-medical", "consultoria-executiva", "imobiliario-premium"],
+      "serif": {
+        "family": "Fraunces",
+        "weights": [300, 400, 500, 600, 700],
+        "italic": true,
+        "google_fonts_url": "family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700"
+      },
+      "sans": {
+        "family": "Inter",
+        "weights": [300, 400, 500, 600, 700, 800],
+        "google_fonts_url": "family=Inter:wght@300;400;500;600;700;800"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [400, 500],
+        "google_fonts_url": "family=JetBrains+Mono:wght@400;500"
+      },
+      "rationale": "Fraunces é serif moderna com toque opulento (variable optical sizing). Inter é o padrão técnico-clean. Combinação premium-medical sem soar antigo."
+    },
+    {
+      "id": "cormorant-inter-italiana",
+      "name": "Cormorant Garamond + Inter + Italiana",
+      "fits": ["espiritualidade", "feminino-sagrado", "tarot", "holistico", "templo", "mentora-espiritual"],
+      "serif": {
+        "family": "Cormorant Garamond",
+        "weights": [300, 400, 500, 600, 700],
+        "italic": true,
+        "google_fonts_url": "family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700"
+      },
+      "sans": {
+        "family": "Inter",
+        "weights": [300, 400, 500, 600, 700],
+        "google_fonts_url": "family=Inter:wght@300;400;500;600;700"
+      },
+      "decorative": {
+        "family": "Italiana",
+        "weights": [400],
+        "use_for": "Nomes próprios, eyebrows decorativos, capítulos",
+        "google_fonts_url": "family=Italiana"
+      },
+      "rationale": "Cormorant é serif italic 'old book', romântica e mística. Italiana acrescenta um toque editorial luxo. Inter ancora no moderno."
+    },
+    {
+      "id": "playfair-inter",
+      "name": "Playfair Display + Inter",
+      "fits": ["editorial", "marca-pessoal", "lifestyle", "alta-cozinha", "publicacao"],
+      "serif": {
+        "family": "Playfair Display",
+        "weights": [400, 500, 600, 700, 800],
+        "italic": true,
+        "google_fonts_url": "family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600"
+      },
+      "sans": {
+        "family": "Inter",
+        "weights": [300, 400, 500, 600, 700],
+        "google_fonts_url": "family=Inter:wght@300;400;500;600;700"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [400, 500],
+        "google_fonts_url": "family=JetBrains+Mono:wght@400;500"
+      },
+      "rationale": "Playfair é o standard de revistas (Vogue, NYT Magazine). Tem alto contraste — funciona em headlines grandes. Inter compensa."
+    },
+    {
+      "id": "geist-mono",
+      "name": "Geist Sans + Geist Mono",
+      "fits": ["tech", "saas", "startup", "developer", "produto-digital", "ai-tools"],
+      "serif": {
+        "family": "Geist",
+        "weights": [300, 400, 500, 600, 700],
+        "italic": false,
+        "google_fonts_url": "family=Geist:wght@300;400;500;600;700"
+      },
+      "sans": {
+        "family": "Geist",
+        "weights": [300, 400, 500, 600, 700],
+        "google_fonts_url": "family=Geist:wght@300;400;500;600;700"
+      },
+      "mono": {
+        "family": "Geist Mono",
+        "weights": [400, 500, 700],
+        "google_fonts_url": "family=Geist+Mono:wght@400;500;700"
+      },
+      "rationale": "Geist (Vercel) é o padrão tech moderno. Mesma família pra display e body cria coesão. Mono pra códigos/IDs."
+    },
+    {
+      "id": "instrument-serif-plain",
+      "name": "Instrument Serif + Inter",
+      "fits": ["editorial-moderno", "design-first", "agencia-criativa", "moda", "casa-de-cultura"],
+      "serif": {
+        "family": "Instrument Serif",
+        "weights": [400],
+        "italic": true,
+        "google_fonts_url": "family=Instrument+Serif:ital,wght@0,400;1,400"
+      },
+      "sans": {
+        "family": "Inter",
+        "weights": [300, 400, 500, 600, 700],
+        "google_fonts_url": "family=Inter:wght@300;400;500;600;700"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [400, 500],
+        "google_fonts_url": "family=JetBrains+Mono:wght@400;500"
+      },
+      "rationale": "Instrument Serif é a tipo trendy 2024-2026 — leve, contrastante, italic gigante. Combina com layouts editoriais modernos."
+    },
+    {
+      "id": "bricolage-geist",
+      "name": "Bricolage Grotesque + Geist Mono",
+      "fits": ["performance", "fitness", "biohacking", "produtividade", "alta-energia"],
+      "serif": {
+        "family": "Bricolage Grotesque",
+        "weights": [400, 500, 600, 700, 800],
+        "italic": false,
+        "google_fonts_url": "family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800"
+      },
+      "sans": {
+        "family": "Bricolage Grotesque",
+        "weights": [400, 500, 600, 700],
+        "google_fonts_url": "family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700"
+      },
+      "mono": {
+        "family": "Geist Mono",
+        "weights": [400, 500, 700],
+        "google_fonts_url": "family=Geist+Mono:wght@400;500;700"
+      },
+      "rationale": "Bricolage é grotesque condensada que tem peso visual — funciona pra brand performance/energético."
+    }
+  ],
+  "selection_logic": {
+    "step_1": "Identificar tom do cliente no briefing (Bloco 5: medico/místico/tech/etc.)",
+    "step_2": "Cruzar com array 'fits' de cada par",
+    "step_3": "Default fallback: cormorant-inter-italiana (mais versátil)"
+  },
+  "google_fonts_url_builder": {
+    "format": "https://fonts.googleapis.com/css2?{display_url}&{sans_url}&{mono_url}&display=swap",
+    "example": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  }
+}

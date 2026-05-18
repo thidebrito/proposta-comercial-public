@@ -1,0 +1,89 @@
+/* ==========================================================
+   STYLE TOKENS — pitch @thidebrito (exemplo neutro)
+   Paleta: laranja queimado + marrom quente + dourado mostarda
+   Reflete identidade @thidebrito (emojis 🍊🤎)
+   ========================================================== */
+
+:root {
+  /* PALETA · thidebrito-warm */
+  --primary:        #D2691E;   /* laranja-âmbar quente */
+  --primary-deep:   #8B3A0E;   /* marrom escuro quente */
+  --primary-light:  #E8884A;   /* laranja claro */
+  --primary-soft:   #F2B888;   /* laranja muito claro */
+
+  --accent:         #F4C04E;   /* mostarda dourada */
+  --accent-soft:    #FAE0A0;   /* mostarda clara */
+  --accent-deep:    #C49932;   /* mostarda escura */
+
+  --neutral-light:  #FAF7F2;   /* off-white quente */
+  --neutral-warm:   #F3EBE0;   /* bege quente */
+
+  --text:           #1A0F0A;   /* preto-noite quente */
+  --text-soft:      #5A4A38;   /* marrom suave (texto secundário) */
+  --text-mute:      #8C7460;   /* marrom claro */
+
+  --border:         #E5DBCB;   /* bege borda */
+  --border-soft:    #F0E8DA;
+
+  /* TIPOGRAFIA · instrument-serif-plain (adaptado) */
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans:  'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
+  --decorative: 'Italiana', serif;
+
+  /* LAYOUT */
+  --container: 1200px;
+  --pad: clamp(1.25rem, 4vw, 2rem);
+  --pad-section: clamp(80px, 12vh, 120px);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 22px;
+
+  /* SOMBRAS · baseadas no laranja primário */
+  --shadow-sm: 0 2px 8px rgba(210, 105, 30, 0.06);
+  --shadow-md: 0 8px 24px rgba(210, 105, 30, 0.12);
+  --shadow-lg: 0 24px 60px rgba(139, 58, 14, 0.20);
+  --shadow-xl: 0 40px 100px rgba(26, 15, 10, 0.30);
+
+  /* ANIMAÇÕES */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.25s;
+  --duration: 0.4s;
+  --duration-slow: 0.8s;
+
+  /* Z-INDEX */
+  --z-grain: 1;
+  --z-content: 2;
+  --z-nav: 50;
+  --z-modal: 100;
+  --z-overlay: 200;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --pad-section: clamp(60px, 10vh, 80px);
+    --container: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+}
+
+@supports (-webkit-font-smoothing: antialiased) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
