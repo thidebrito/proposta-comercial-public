@@ -19,7 +19,7 @@ E também porque é **anônimo o suficiente** — não expõe dados de nenhum cl
 ## Como rodar
 
 ```bash
-cd ~/.claude/skills/proposta-comercial/examples/exemplo-thidebrito
+cd ~/.claude/skills/proposta-comercial/examples/exemplo-autor
 python3 -m http.server 8765
 # abrir http://localhost:8765/pitch.html
 ```
